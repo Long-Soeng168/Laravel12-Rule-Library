@@ -1,9 +1,10 @@
-import MyCategory from './components/my-category';
+import MyDatabase from './components/my-databese';
 import MyHeroSection from './components/my-hero-section';
 import MyNews from './components/my-news';
 import MyPost from './components/my-post';
 import MySearch from './components/my-search';
 import MySlide from './components/my-slide';
+import MyVideos from './components/my-videos';
 import Layout from './Layout';
 
 const Index = () => {
@@ -12,7 +13,8 @@ const Index = () => {
             <MySlide />
             <MySearch />
             <MyHeroSection />
-            <MyCategory />
+            <MyDatabase />
+            <MyVideos />
             <MyPost />
             <MyNews />
         </Layout>

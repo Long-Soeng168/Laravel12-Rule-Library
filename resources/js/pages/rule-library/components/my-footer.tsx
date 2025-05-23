@@ -46,18 +46,10 @@ const MyFooter = () => {
 
   return (
     <footer className="bg-[#393838] text-gray-300 py-12">
-      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 xl:px-16">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 xl:px-20">
         {/* Grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-center md:text-left items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-center md:text-left items-start">
           
-          {/* Logo */}
-          <div className="flex justify-center md:justify-start">
-            <img
-              src="/assets/rule-library/images/rule-logo.png"
-              alt="Rule Library Logo"
-              className="h-60 w-auto object-contain"
-            />
-          </div>
 
           {/* Contact Info */}
           <div>

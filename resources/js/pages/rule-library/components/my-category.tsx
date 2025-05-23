@@ -1,7 +1,17 @@
-
 const MyCategory = () => {
+  const items = [
+    { name: "Theses", image: "/assets/demo-images/rule-images/image2.webp" },
+    { name: "E-Publications", image: "/assets/demo-images/rule-images/image3.webp" },
+    { name: "Audios", image: "/assets/demo-images/rule-images/image2.webp" },
+    { name: "Journals", image: "/assets/demo-images/rule-images/image3.webp" },
+    { name: "Videos", image: "/assets/demo-images/rule-images/image2.webp" },
+    // Add more items here if needed to test scrolling
+  ];
+
+  const useScrollLayout = items.length > 5;
+
   return (
-    <div className="max-w-screen-2xl my-10 mx-auto px-2 sm:px-10 lg:px-20">
+    <div className="max-w-screen-2xl mt-10 mx-auto px-2 sm:px-10 lg:px-20">
       <div className="flex">
         <h2
           className="text-xl md:text-2xl text-center lg:text-2xl text-black my-5 tracking-wide 
@@ -13,20 +23,23 @@ const MyCategory = () => {
         </h2>
       </div>
 
-      <div className="flex p-2 overflow-x-auto bg-slate-400 rounded-lg scroll-smooth scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-500">
-        {/* Static database items */}
-        {[
-          { name: "Videos", image: "/assets/demo-images/rule-images/image2.webp" },
-          { name: "E-Publications", image: "/assets/demo-images/rule-images/image3.webp" },
-          { name: "Bulletins", image: "/assets/demo-images/rule-images/image2.webp" },
-          { name: "Sociology", image: "/assets/demo-images/rule-images/image3.webp" },
-          { name: "Books", image: "/assets/demo-images/rule-images/image2.webp" },
-          { name: "Images", image: "/assets/demo-images/rule-images/image3.webp" },
-          { name: "Images", image: "/assets/demo-images/rule-images/image2.webp" },
-        ].map((item, index) => (
+      <div
+        className={`bg-slate-400 rounded-lg p-2 ${
+          useScrollLayout
+            ? "flex overflow-x-auto gap-4 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-300"
+            : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+        }`}
+      >
+        {items.map((item, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[20%] md:w-[15%] min-w-[100px] px-2 hover:bg-white py-4 rounded-md hover:text-black text-white"
+            className={`px-2 py-4 rounded-md hover:bg-white hover:text-black text-white 
+              ${
+                useScrollLayout
+                  ? "flex-shrink-0 min-w-[120px] sm:min-w-[140px] md:min-w-[160px]"
+                  : ""
+              }
+            `}
           >
             <div className="flex flex-col items-center justify-center">
               <img
@@ -40,7 +53,7 @@ const MyCategory = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyCategory
+export default MyCategory;

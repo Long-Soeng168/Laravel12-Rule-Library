@@ -2,7 +2,8 @@ import { Button } from "./ui/button"
 
 const MySearch = () => {
   return (
-    <div className="max-w-screen-2xl mx-auto px-3 sm:px-10 lg:px-20 py-3 bg-[#393838]">
+    <div className="bg-[#393838]">
+       <div className="max-w-screen-2xl mx-auto px-3 sm:px-10 lg:px-20 py-3">
       <p className="text-base sm:text-xl lg:text-2xl text-white font-semibold">
         One Search
       </p>
@@ -51,6 +52,8 @@ const MySearch = () => {
         </Button>
       </form>
     </div>
+    </div>
+   
   )
 }
 

@@ -15,9 +15,9 @@ const MyNewHeader = () => {
                             className="h-16 w-14 md:h-24 md:w-20"
                         />
                         <p className="text-[10px] xl:text-xl font-semibold">
-                            សាកលវិទ្យាល័យភូមិន្ទនីតិសាស្រ្ដ និងវិទ្យាសាស្រ្ដសេដ្ឋកិច្ច
+                            បណ្ណាល័យនៃសាកលវិទ្យាល័យភូមិន្ទនីតិសាស្រ្ត និងវិទ្យាសាស្ត្រសេដ្ឋកិច្ច
                             <br />
-                            <span className="font-normal">Royal University of Law and Economics </span>
+                            <span className="font-normal">Library of the Royal University of Law and Economics</span>
                         </p>
                     </a>
                     <MyMenu />

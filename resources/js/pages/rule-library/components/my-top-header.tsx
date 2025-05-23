@@ -20,7 +20,7 @@ const MyTopHeader = () => {
           <div className="flex items-center gap-1">
             <User size={18} />
             <a href="#" className="hover:underline whitespace-nowrap">
-              Student Login
+              Patron Login
             </a>
           </div>
         </div>

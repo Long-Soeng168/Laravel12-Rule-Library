@@ -38,7 +38,7 @@ const MyMenu = () => {
     <>
       {/* Desktop Menu */}
       <nav className="hidden xl:block py-3">
-        <ul className="flex justify-center items-center space-x-4 text-base font-medium text-white">
+        <ul className="flex justify-center items-center space-x-4 text-base text-white">
           {menuItems.map((item, index) => (
             <li
               key={item.id}

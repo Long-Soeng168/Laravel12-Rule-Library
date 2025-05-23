@@ -9,12 +9,12 @@ const MyHeroAbout = () => {
                     <img
                         src="/assets/demo-images/rule-images/image3.jpg"
                         alt="Library Interior"
-                        className="absolute top-0 left-0 h-[85%] w-2/4 rounded-xl object-cover shadow-xl"
+                        className="absolute top-0 -left-1 h-[85%] w-2/4 object-cover "
                     />
                     <img
                         src="/assets/demo-images/rule-images/image4.jpg"
                         alt="Bookshelves"
-                        className="absolute right-0 bottom-0 h-[85%] w-2/4 rounded-xl border-4 border-white object-cover shadow-2xl"
+                        className="absolute -right-1 bottom-0 h-[85%] w-2/4 object-cover"
                     />
                 </div>
 
