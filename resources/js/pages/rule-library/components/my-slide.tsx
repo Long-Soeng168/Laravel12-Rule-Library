@@ -1,53 +1,46 @@
-import {
-    Carousel,
-    CarouselApi,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from '@/components/ui/carousel';
+import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Link } from '@inertiajs/react';
 import Autoplay from 'embla-carousel-autoplay';
 import React from 'react';
 
 const MySlide = ({ className, images = [] }: { className?: string; images?: any }) => {
-    images = [
-        {
-            id: '1',
-            image: '/assets/demo-images/rule-images/slide1.jpg',
-            alt: 'image 1',
-            short: 'Safety and security don’t just happen; <strong>CCTV</strong> is an investment in protection',
-            bg: '#273896',
-        },
-        {
-            id: '2',
-            image: '/assets/demo-images/rule-images/slide1.jpg',
-            alt: 'image 2',
-            short: 'Your safety starts at the door—let an <strong>Access Control System</strong> decide who comes through.',
-            bg: '#008080',
-        },
-        {
-            id: '3',
-            image: '/assets/demo-images/rule-images/slide1.jpg',
-            alt: 'image 3',
-            short: 'Peace of mind begins with protection—<strong>Intrusion Alarms</strong> ensure you sleep soundly.',
-            bg: '#36454f',
-        },
-        {
-            id: '4',
-            image: '/assets/demo-images/rule-images/slide1.jpg',
-            alt: 'image 4',
-            short: 'The sun never send a bill—<strong>Smart Solar Energy System</strong> turn its power savings.',
-            bg: '#008080',
-        },
-        {
-            id: '5',
-            image: '/assets/demo-images/rule-images/slide1.jpg',
-            alt: 'image 5',
-            short: 'A smart home isn’t just about convenience—it’s about control. Automate your world with a <strong>Smart Home Automation System</strong>.',
-            bg: '#273896',
-        },
-    ];
+    // images = [
+    //     {
+    //         id: '1',
+    //         image: '/assets/demo-images/rule-images/slide1.jpg',
+    //         alt: 'image 1',
+    //         short: 'Safety and security don’t just happen; <strong>CCTV</strong> is an investment in protection',
+    //         bg: '#273896',
+    //     },
+    //     {
+    //         id: '2',
+    //         image: '/assets/demo-images/rule-images/slide1.jpg',
+    //         alt: 'image 2',
+    //         short: 'Your safety starts at the door—let an <strong>Access Control System</strong> decide who comes through.',
+    //         bg: '#008080',
+    //     },
+    //     {
+    //         id: '3',
+    //         image: '/assets/demo-images/rule-images/slide1.jpg',
+    //         alt: 'image 3',
+    //         short: 'Peace of mind begins with protection—<strong>Intrusion Alarms</strong> ensure you sleep soundly.',
+    //         bg: '#36454f',
+    //     },
+    //     {
+    //         id: '4',
+    //         image: '/assets/demo-images/rule-images/slide1.jpg',
+    //         alt: 'image 4',
+    //         short: 'The sun never send a bill—<strong>Smart Solar Energy System</strong> turn its power savings.',
+    //         bg: '#008080',
+    //     },
+    //     {
+    //         id: '5',
+    //         image: '/assets/demo-images/rule-images/slide1.jpg',
+    //         alt: 'image 5',
+    //         short: 'A smart home isn’t just about convenience—it’s about control. Automate your world with a <strong>Smart Home Automation System</strong>.',
+    //         bg: '#273896',
+    //     },
+    // ];
 
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
@@ -76,7 +69,7 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                     ]}
                     opts={{ loop: true }}
                     setApi={setApi}
-                    className="relative bg-true-primary"
+                    className="bg-true-primary relative"
                 >
                     <CarouselContent>
                         {images.map((image) => (
@@ -86,7 +79,7 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                                         className={`w-full object-cover transition-all duration-500 ${
                                             image.link ? 'border-primary hover:scale-95 hover:border-2' : ''
                                         }`}
-                                        src={image.image}
+                                        src={`/assets/images/banners/${image.image}`}
                                         alt={image.alt}
                                     />
                                 </Link>
@@ -95,13 +88,11 @@ const MySlide = ({ className, images = [] }: { className?: string; images?: any 
                     </CarouselContent>
 
                     {/* Dots */}
-                    <div className="absolute bottom-2 sm:bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-2">
+                    <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 transform space-x-2 sm:bottom-5 sm:space-x-2">
                         {images.map((_, index) => (
                             <button
                                 key={index}
-                                className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition ${
-                                    index === current ? 'bg-yellow-400' : 'bg-white'
-                                }`}
+                                className={`h-2 w-2 rounded-full transition sm:h-3 sm:w-3 ${index === current ? 'bg-yellow-400' : 'bg-white'}`}
                                 onClick={() => api?.scrollTo(index)}
                             />
                         ))}

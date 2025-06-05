@@ -31,13 +31,13 @@ const SectionCards = () => {
             link: '/admin/pages',
             permission: 'page view',
         },
-        {
-            icon: ProjectorIcon,
-            title: t('Projects'),
-            total_records: `${featureDatas?.project_counts}`,
-            link: '/admin/projects',
-            permission: 'project view',
-        },
+        // {
+        //     icon: ProjectorIcon,
+        //     title: t('Projects'),
+        //     total_records: `${featureDatas?.project_counts}`,
+        //     link: '/admin/projects',
+        //     permission: 'project view',
+        // },
         {
             icon: LinkIcon,
             title: t('Links'),
@@ -52,13 +52,13 @@ const SectionCards = () => {
             link: '/admin/banners',
             permission: 'banner view',
         },
-        {
-            icon: Heading1Icon,
-            title: t('Headings'),
-            total_records: `${featureDatas?.heading_counts}`,
-            link: '/admin/headings',
-            permission: 'heading view',
-        },
+        // {
+        //     icon: Heading1Icon,
+        //     title: t('Headings'),
+        //     total_records: `${featureDatas?.heading_counts}`,
+        //     link: '/admin/headings',
+        //     permission: 'heading view',
+        // },
         {
             icon: UsersIcon,
             title: t('Users'),

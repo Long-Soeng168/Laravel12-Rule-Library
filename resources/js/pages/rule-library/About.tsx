@@ -10,14 +10,17 @@ import {
 import { SlashIcon } from 'lucide-react'
 import MyHeroAbout from './components/my-hero-about'
 import MyOurValues from './components/my-our-values'
+import { usePage } from '@inertiajs/react'
 
 const About = () => {
+  const { banner } = usePage().props;
+  // console.log(banner);
   return (
     <Layout>
       <div className="relative w-full h-[60vh] flex flex-col items-center justify-center text-white overflow-hidden">
         {/* Background Image with Dark Overlay */}
         <img
-          src="/assets/demo-images/rule-images/slide1.jpg"
+          src={`/assets/images/banner_positions/${banner?.banner}`}
           alt="Contact Background"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />

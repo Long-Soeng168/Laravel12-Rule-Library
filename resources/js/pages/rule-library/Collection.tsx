@@ -2,14 +2,16 @@ import { SlashIcon } from 'lucide-react';
 import MyCollections from './components/my-collections';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from './components/ui/breadcrumb';
 import Layout from './Layout';
+import { usePage } from '@inertiajs/react';
 
-const Collection = () => {
+const Collection = () => { 
+    const { banner } = usePage().props;
     return (
         <Layout>
             <div className="relative flex h-[60vh] w-full flex-col items-center justify-center overflow-hidden text-white">
                 {/* Background Image with Dark Overlay */}
                 <img
-                    src="/assets/demo-images/rule-images/slide1.jpg"
+                    src={`/assets/images/banner_positions/${banner?.banner}`}
                     alt="Contact Background"
                     className="absolute inset-0 z-0 h-full w-full object-cover"
                 />

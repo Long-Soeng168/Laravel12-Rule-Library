@@ -1,6 +1,8 @@
+import { usePage } from '@inertiajs/react';
 import MyMenu from './my-menu';
 
 const MyNewHeader = () => {
+    const { application_info } = usePage().props;
     return (
         <div>
             {/* nav and slide */}
@@ -8,16 +10,16 @@ const MyNewHeader = () => {
                 <div className="mx-auto flex max-w-screen-2xl gap-2 items-center px-3 py-5 sm:px-10 xl:px-20">
                     <a href="/" className="flex flex-1 items-center gap-2 text-center text-base text-white md:text-xl lg:text-xl">
                         <img
-                            src="/assets/rule-library/images/rule-logo.png"
-                            width={90}
-                            height={90}
+                            src={`/assets/images/application_info/${application_info?.image}`}
+                            width={80}
+                            height={80}
                             alt="logo"
                             className="h-16 w-14 md:h-24 md:w-20"
                         />
                         <p className="text-[10px] xl:text-xl font-semibold">
-                            បណ្ណាល័យនៃសាកលវិទ្យាល័យភូមិន្ទនីតិសាស្រ្ត និងវិទ្យាសាស្ត្រសេដ្ឋកិច្ច
+                            {application_info?.name_kh}
                             <br />
-                            <span className="font-normal">Library of the Royal University of Law and Economics</span>
+                            <span className="font-normal"> {application_info?.name}</span>
                         </p>
                     </a>
                     <MyMenu />

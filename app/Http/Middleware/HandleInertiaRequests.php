@@ -68,6 +68,8 @@ class HandleInertiaRequests extends Middleware
             'links' => Link::where('status', 'active')->orderBy('order_index')->get(),
             'item_categories' => ItemCategory::with('children')->withCount('items')->where('status', 'active')->where('parent_code', null)->orderBy('order_index')->orderBy('name')->get() ?? [],
             'post_counts' => Post::where('status', 'active')->count(),
+            'socialMedia' => Link::where('type', 'social_media')->get(),
+            'dataBase' => Link::where('type', 'databases')->get(),
 
             // Westec
             'pages_menus' => [
