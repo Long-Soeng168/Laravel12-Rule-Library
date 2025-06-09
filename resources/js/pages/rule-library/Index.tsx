@@ -8,6 +8,7 @@ import MySearch from './components/my-search';
 import MySlide from './components/my-slide';
 import MyVideos from './components/my-videos';
 import Layout from './Layout';
+import ToggleModeSwitch from '@/components/toggle-mode-switch';
 
 const Index = () => {
   const { slide } = usePage().props;

@@ -1,13 +1,7 @@
-import React from "react"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "./ui/carousel"
-import { Card, CardContent } from "./ui/card"
-import { usePage } from "@inertiajs/react"
+import { usePage } from '@inertiajs/react';
+import { Card, CardContent } from './ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import MyHeadingStyle1 from './my-heading-style-1';
 
 // const items = [
 //   { name: "Theses", image: "/assets/demo-images/rule-images/image2.webp" },
@@ -19,45 +13,37 @@ import { usePage } from "@inertiajs/react"
 // ]
 
 const MyDatabase = () => {
-  const { dataBase } = usePage().props;
-  return (
-    <div className="max-w-screen-2xl mx-auto px-3 lg:px-20 mt-10">
-       <div className="flex">
-        <h2
-          className="text-xl md:text-2xl text-center lg:text-2xl text-black my-5 tracking-wide 
-          after:content-[''] after:block after:w-24 md:after:w-32 after:h-1 after:bg-red-500 
-          after:mx-auto after:mt-2 after:transition-all after:duration-300 
-          hover:after:w-28 md:hover:after:w-36"
-        >
-          Our Databases
-        </h2>
-      </div>
+    const { dataBase } = usePage().props;
+    return (
+        <div className="mx-auto mt-10 max-w-screen-2xl px-3 lg:px-20">
+            <div className="flex">
+                <MyHeadingStyle1 title='Our Databases'/>
+            </div>
 
-      <Carousel opts={{ align: "start" }} className="w-full">
-        <CarouselContent>
-          {dataBase?.map((item, index) => (
-            <CarouselItem
-              key={index}
-              className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
-            >
-              <Card className="bg-slate-400 border-dashed hover:cursor-pointer text-white hover:text-black hover:bg-white transition-colors duration-300">
-                <CardContent className="flex flex-col items-center justify-center">
-                  <img
-                    src={`/assets/images/links/${item.image}`}
-                    className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] mb-2 object-cover"
-                    alt={item.title}
-                  />
-                  <p className="text-center text-[12px] md:text-sm">{item.title}</p>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </div>
-  )
-}
+            <Carousel opts={{ align: 'start' }} className="w-full">
+                <CarouselContent className="p-2">
+                    {dataBase?.map((item, index) => (
+                        <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
+                            <Card className="border-primary bg-background flex cursor-pointer flex-col items-center justify-center gap-2 rounded border border-dashed px-1 py-4 transition-all duration-300 hover:-translate-2 hover:border-solid hover:shadow-[5px_5px_rgba(104,_96,_255,_0.4),_10px_10px_rgba(104,_96,_255,_0.3),_15px_15px_rgba(104,_96,_255,_0.2)]">
+                                <CardContent className="flex flex-col items-center justify-center">
+                                    <img
+                                        src={`/assets/images/links/${item.image}`}
+                                        className="mb-2 h-[50px] w-[50px] object-cover md:h-[60px] md:w-[60px]"
+                                        alt={item.title}
+                                    />
+                                    <p className="text-center text-sm lg:text-lg whitespace-nowrap font-bold">{item.title}</p>
+                                </CardContent>
+                            </Card>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <div className={`${dataBase?.length <= 5 ? 'lg:hidden' : ''}`}>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </div>
+            </Carousel>
+        </div>
+    );
+};
 
-export default MyDatabase
+export default MyDatabase;

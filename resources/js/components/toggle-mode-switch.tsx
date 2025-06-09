@@ -46,9 +46,9 @@ export default function ToggleModeSwitch({ className = '' }: { className?: strin
       <Switch
         icon={
           isDark ? (
-            <MoonIcon className="h-4 w-4 text-white" />
+            <MoonIcon className="size-5 text-white" />
           ) : (
-            <SunMediumIcon className="h-4 w-4 text-black dark:text-white" />
+            <SunMediumIcon className="size-5 text-black dark:text-white" />
           )
         }
         checked={isDark}

@@ -2,7 +2,7 @@ import { Button } from "./ui/button"
 
 const MySearch = () => {
   return (
-    <div className="bg-[#393838]">
+    <div className="bg-[#393838] pb-2">
        <div className="max-w-screen-2xl mx-auto px-3 sm:px-10 lg:px-20 py-3">
       <p className="text-base sm:text-xl lg:text-2xl text-white font-semibold">
         One Search
@@ -15,7 +15,7 @@ const MySearch = () => {
         <input
           id="search-bar"
           placeholder="Search By: Title, ISBN, Author..."
-          className="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white"
+          className="px-6 py-2 w-full rounded-md flex-1 text-black outline-none bg-white"
         />
         <Button
           type="submit"

@@ -1,4 +1,5 @@
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from '@inertiajs/react';
+import MyHeadingStyle1 from './my-heading-style-1';
 
 // const books = [
 //   {
@@ -33,37 +34,33 @@ import { Link, usePage } from "@inertiajs/react";
 //   },
 // ];
 
-
 const MyResearchPaper = () => {
-  const { researchPaper } = usePage().props;
-  return (
-    <div className="max-w-screen-2xl lg:px-20 container mx-auto px-3 my-10">
-      <div className="flex">
-        <h2 className="text-xl md:text-2xl text-center lg:text-2xl text-black my-5 tracking-wide 
-          after:content-[''] after:block after:w-12 md:after:w-24 after:h-1 after:bg-red-500 
-          after:mx-auto after:mt-2 after:transition-all after:duration-300 
-          hover:after:w-16 md:hover:after:w-28">
-          Research Papers
-        </h2>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2">
-        {researchPaper?.map((item) => (
-          <a href={`${item.link}`} key={item.id} className="bg-white hover:cursor-pointer rounded-lg overflow-hidden hover:scale-95 transition-all duration-300">
-            <img 
-              src={`/assets/images/items/${item?.images[0].image}`}
-              alt="image" 
-              width={200}   
-              height={300} 
-              className="w-full aspect-[6/9] rounded-lg object-cover"
-            />
-            <div className="pt-2 line-clamp-2 text-base">
-              <h3 className="text-sm font-medium text-gray-800">{item.name}</h3>
+    const { researchPaper } = usePage().props;
+    return (
+        <div className="container mx-auto my-10 max-w-screen-2xl px-3 lg:px-20">
+            <div className="flex">
+                <MyHeadingStyle1 title="Research Papers" />
             </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
+            <div className="mt-1 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
+                {researchPaper?.map((item) => (
+                    <a
+                        href={`${item.link}`}
+                        key={item.id}
+                        className="overflow-hidden rounded-lg transition-all duration-300 hover:scale-95 hover:cursor-pointer"
+                    >
+                        <img
+                            src={`/assets/images/items/${item?.images[0].image}`}
+                            alt="image"
+                            width={200}
+                            height={300}
+                            className="aspect-[6/9] w-full rounded-lg border object-cover"
+                        />
+                        <h3 className="text-foreground line-clamp-3 pt-2 text-base">{item.name}</h3>
+                    </a>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default MyResearchPaper;

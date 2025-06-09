@@ -1,6 +1,7 @@
 import { Mail, MapPinCheck, PhoneCall } from 'lucide-react';
 import Layout from './Layout';
 import { usePage } from '@inertiajs/react';
+import { MyFooterSocialTooltip } from './components/my-footer-social-tooltip';
 
 // const socialMedia = [
 //     {
@@ -107,9 +108,9 @@ const Contact = () => {
 
                                 {/* Social Media Section */}
                                 <div className="mt-4 md:mt-0">
-                                    <p className="mb-6 text-lg font-bold text-gray-800">Social Media</p>
-                                    <div className="flex flex-wrap gap-4">
-                                        {socialMedia?.map((item) => (
+                                    <p className="mb-6 text-lg text-center font-bold text-gray-800">Social Media</p>
+                                    <div className="flex flex-wrap justify-start gap-4">
+                                        {/* {socialMedia?.map((item) => (
                                             <a
                                                 key={item.id}
                                                 href={item.link}
@@ -118,11 +119,12 @@ const Contact = () => {
                                                 <img
                                                     src={`/assets/images/links/${item.image}`}
                                                     alt={`${item.title} icon`}
-                                                    className="h-14 w-14 transition-transform duration-300 group-hover:scale-110"
+                                                    className="h-14 w-14 transition-transform duration-300 group-hover:scale-110 bg-white rounded-full"
                                                 />
                                                 <span className="mt-2 text-sm text-gray-300 transition group-hover:text-white">{item.title}</span>
                                             </a>
-                                        ))}
+                                        ))} */}
+                                        <MyFooterSocialTooltip items={socialMedia}/>
                                     </div>
                                 </div>
                             </div>

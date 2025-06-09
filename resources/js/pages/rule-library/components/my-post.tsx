@@ -1,4 +1,5 @@
 import { usePage } from '@inertiajs/react';
+import MyHeadingStyle1 from './my-heading-style-1';
 
 // const books = [
 //     {
@@ -39,28 +40,24 @@ const MyPost = () => {
     return (
         <div className="container mx-auto my-10 max-w-screen-2xl px-3 lg:px-20">
             <div className="flex">
-                <h2 className="my-5 text-center text-xl tracking-wide text-black after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:bg-red-500 after:transition-all after:duration-300 after:content-[''] hover:after:w-16 md:text-2xl md:after:w-24 md:hover:after:w-28 lg:text-2xl">
-                    New Books
-                </h2>
+                <MyHeadingStyle1 title="New Books" />
             </div>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
+            <div className="mt-1 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
                 {newBooks?.map((item) => (
                     <a
                         href={`${item.link}`}
                         key={item.id}
-                        className="overflow-hidden rounded-lg bg-white transition-all duration-300 hover:scale-95 hover:cursor-pointer"
+                        className="overflow-hidden rounded-lg  transition-all duration-300 hover:scale-95 hover:cursor-pointer"
                     >
-                            <img
-                                src={`/assets/images/items/${item?.images[0].image}`}
-                                alt="image"
-                                width={200}
-                                height={300}
-                                className="aspect-[6/9] w-full rounded-lg object-cover"
-                            />
+                        <img
+                            src={`/assets/images/items/${item?.images[0].image}`}
+                            alt="image"
+                            width={200}
+                            height={300}
+                            className="aspect-[6/9] border w-full rounded-lg object-cover"
+                        />
 
-                        <div className="line-clamp-2 pt-2 text-base">
-                            <h3 className="text-sm font-medium text-gray-800">{item.name}</h3>
-                        </div>
+                        <h3 className="mt-2 line-clamp-3 text-base text-foreground">{item.name}</h3>
                     </a>
                 ))}
             </div>
