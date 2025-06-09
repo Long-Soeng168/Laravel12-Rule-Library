@@ -1,7 +1,7 @@
-import { Mail, MapPinCheck, PhoneCall } from 'lucide-react';
-import Layout from './Layout';
 import { usePage } from '@inertiajs/react';
+import { Mail, MapPinCheck, PhoneCall } from 'lucide-react';
 import { MyFooterSocialTooltip } from './components/my-footer-social-tooltip';
+import Layout from './Layout';
 
 // const socialMedia = [
 //     {
@@ -59,7 +59,7 @@ const Contact = () => {
 
                 {/* Info Section */}
                 <div className="container mx-auto px-6 md:px-12">
-                    <div className="-mt-[100px] block rounded-lg border border-gray-300 bg-white/80 px-6 py-12 shadow-xl backdrop-blur-[30px] md:px-12 md:py-16">
+                    <div className="bg-background dark:bg-gray-800 -mt-[100px] block rounded-lg border-gray-300 px-6 py-12 shadow-xl backdrop-blur-[30px] md:px-12 md:py-16">
                         <div className="grid justify-center">
                             <div className="grid w-full gap-12 md:grid-cols-2 xl:grid-cols-2">
                                 {/* Contact Details Section */}
@@ -72,8 +72,10 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="ml-6 grow">
-                                            <p className="mb-2 font-semibold text-gray-800">Phone Number</p>
-                                            <p className="text-sm text-neutral-600 transition group-hover:text-neutral-800">{application_info?.phone}</p>
+                                            <p className="mb-2 font-semibold text-foreground">Phone Number</p>
+                                            <p className="text-foreground text-sm transition group-hover:text-neutral-800">
+                                                {application_info?.phone}
+                                            </p>
                                         </div>
                                     </div>
 
@@ -85,9 +87,9 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="ml-6 grow">
-                                            <p className="mb-2 font-semibold text-gray-800">Address</p>
-                                            <p className="text-sm text-neutral-600 transition group-hover:text-neutral-800">
-                                               {application_info?.address}
+                                            <p className="mb-2 font-semibold text-foreground">Address</p>
+                                            <p className="text-foreground text-sm transition group-hover:text-neutral-800">
+                                                {application_info?.address}
                                             </p>
                                         </div>
                                     </div>
@@ -100,15 +102,17 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="ml-6 grow">
-                                            <p className="mb-2 font-semibold text-gray-800">Email</p>
-                                            <p className="text-sm text-neutral-600 transition group-hover:text-neutral-800">{application_info?.email}</p>
+                                            <p className="mb-2 font-semibold text-foreground">Email</p>
+                                            <p className="text-foreground text-sm transition group-hover:text-neutral-800">
+                                                {application_info?.email}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Social Media Section */}
                                 <div className="mt-4 md:mt-0">
-                                    <p className="mb-6 text-lg text-center font-bold text-gray-800">Social Media</p>
+                                    <p className="mb-6 text-center text-lg font-bold text-foreground">Social Media</p>
                                     <div className="flex flex-wrap justify-start gap-4">
                                         {/* {socialMedia?.map((item) => (
                                             <a
@@ -124,7 +128,7 @@ const Contact = () => {
                                                 <span className="mt-2 text-sm text-gray-300 transition group-hover:text-white">{item.title}</span>
                                             </a>
                                         ))} */}
-                                        <MyFooterSocialTooltip items={socialMedia}/>
+                                        <MyFooterSocialTooltip items={socialMedia} />
                                     </div>
                                 </div>
                             </div>
