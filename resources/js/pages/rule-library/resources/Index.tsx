@@ -2,8 +2,10 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { SlashIcon } from 'lucide-react';
 import Layout from '../Layout';
 import MyItemTableData from '../components/my-item-table-data';
+import { usePage } from '@inertiajs/react';
 
 const Resources = () => {
+     const { banner, heading } = usePage().props;
     return (
         <Layout>
             <div className="relative flex h-[60vh] w-full flex-col items-center justify-center overflow-hidden text-white">
