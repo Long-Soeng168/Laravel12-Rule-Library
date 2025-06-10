@@ -40,11 +40,8 @@ const Databases = () => {
                 </div>
             </div>
             <div className="mx-auto my-10 max-w-4xl text-center">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Top Book Picks</h2>
-                <p className="mt-2 text-gray-500 dark:text-gray-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias necessitatibus ipsam itaque deleniti distinctio dolore. Quam,
-                    doloribus aperiam nam iusto, omnis corporis ipsam, vero deserunt quae vel officia neque culpa.
-                </p>
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">{heading?.title}</h2>
+                <p className="mt-2 text-gray-500 dark:text-gray-300">{heading?.short_description}</p>
             </div>
             <MyItemTableData />
         </Layout>

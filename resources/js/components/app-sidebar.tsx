@@ -10,6 +10,7 @@ import {
     FilePenLineIcon,
     FilesIcon,
     GalleryThumbnailsIcon,
+    Heading1Icon,
     InfoIcon,
     Layers2Icon,
     LayoutDashboardIcon,
@@ -341,12 +342,12 @@ export function AppSidebar() {
         //     url: '/admin/courses',
         //     icon: PresentationIcon,
         // },
-        // {
-        //     title: t('Headings'),
-        //     permission: 'heading view',
-        //     url: '/admin/headings',
-        //     icon: Heading1Icon,
-        // },
+        {
+            title: t('Headings'),
+            permission: 'heading view',
+            url: '/admin/headings',
+            icon: Heading1Icon,
+        },
         {
             title: t('Links'),
             permission: 'link view',

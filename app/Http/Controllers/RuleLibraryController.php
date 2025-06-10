@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BannerPosition;
 use Inertia\Inertia;
 use App\Models\Banner;
+use App\Models\Heading;
 use App\Models\Item;
 use App\Models\Page;
 use App\Models\Post;
@@ -41,6 +42,22 @@ class RuleLibraryController extends Controller
             'ourValues' => $ourValues,
         ]);
     }
+    public function collections()
+    {
+        $banner = BannerPosition::where('code', 'COLLECTION_PAGE_BANNER')->first();
+        $query = Item::query();
+        $query->where('category_code', 'COLLECTIONS');
+        $query->orderBy('id', 'desc');
+        $query->with('images');
+        $tableData = $query->paginate(40);
+
+        $heading = Heading::where('code', 'COLLECTIONS')->first();
+        return Inertia::render('rule-library/collections/Index', [
+            'banner' => $banner,
+            'tableData' => $tableData,
+            'heading' => $heading,
+        ]);
+    }
     public function resources()
     {
         $banner = BannerPosition::where('code', 'RESOURCE_PAGE_BANNER')->first();
@@ -49,9 +66,12 @@ class RuleLibraryController extends Controller
         $query->orderBy('id', 'desc');
         $query->with('images');
         $tableData = $query->paginate(40);
+
+        $heading = Heading::where('code', 'RESOURCES')->first();
         return Inertia::render('rule-library/resources/Index', [
             'banner' => $banner,
             'tableData' => $tableData,
+            'heading' => $heading,
         ]);
     }
     public function databases()
@@ -62,25 +82,17 @@ class RuleLibraryController extends Controller
         $query->orderBy('id', 'desc');
         $query->with('images');
         $tableData = $query->paginate(40);
+
+        $heading = Heading::where('code', 'DATABASES')->first();
+
         return Inertia::render('rule-library/databases/Index', [
             'banner' => $banner,
             'tableData' => $tableData,
+            'heading' => $heading,
         ]);
     }
 
-    public function collections()
-    {
-        $banner = BannerPosition::where('code', 'COLLECTION_PAGE_BANNER')->first();
-        $query = Item::query();
-        $query->where('category_code', 'COLLECTIONS');
-        $query->orderBy('id', 'desc');
-        $query->with('images');
-        $tableData = $query->paginate(40);
-        return Inertia::render('rule-library/collections/Index', [
-            'banner' => $banner,
-            'tableData' => $tableData,
-        ]);
-    }
+
     public function detail($id)
     {
         $showData = Item::findOrFail($id);

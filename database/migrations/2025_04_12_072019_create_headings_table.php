@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('status')->nullable()->default('active');
             $table->string('short_description', 1000)->nullable();
-            $table->string('short_description_kh', 1000)->nullable();
+            $table->string('short_description_kh', length: 1000)->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')

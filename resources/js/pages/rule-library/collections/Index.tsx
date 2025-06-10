@@ -5,7 +5,7 @@ import Layout from '../Layout';
 import MyItemTableData from '../components/my-item-table-data';
 
 const Collections = () => {
-    const { banner } = usePage().props;
+    const { banner, heading } = usePage().props;
     return (
         <Layout>
             <div className="relative flex h-[60vh] w-full flex-col items-center justify-center overflow-hidden text-white">
@@ -41,11 +41,8 @@ const Collections = () => {
                 </div>
             </div>
             <div className="mx-auto my-10 max-w-4xl text-center">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Library Collection Description</h2>
-                <p className="mt-2 text-gray-500 dark:text-gray-300">
-                    Our library provides a rich and diverse collection of materials in both physical and digital formats to support research,
-                    learning, and personal growth. Below are the key types of resources available in our collection:
-                </p>
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">{heading?.title}</h2>
+                <p className="mt-2 text-gray-500 dark:text-gray-300">{heading?.short_description}</p>
             </div>
             <MyItemTableData />
         </Layout>
