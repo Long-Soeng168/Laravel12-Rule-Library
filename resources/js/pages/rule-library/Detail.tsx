@@ -20,7 +20,7 @@ export default function ResourceDetail() {
                                 <ChevronsRight />
                             </BreadcrumbSeparator>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href={`/${showData?.category?.name}`}>{showData?.category?.name}</BreadcrumbLink>
+                                <BreadcrumbLink href={`/${showData?.category?.name.toLowerCase()}`}>{showData?.category?.name}</BreadcrumbLink>
                             </BreadcrumbItem>
                             {showData?.name && (
                                 <>

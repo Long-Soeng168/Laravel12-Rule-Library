@@ -44,7 +44,7 @@ const MyResearchPaper = () => {
             <div className="mt-1 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6">
                 {researchPaper?.map((item) => (
                     <a
-                        href={`${item.link}`}
+                        href={`${item.link ? item.link : '/detail/' + item.id}`}
                         key={item.id}
                         className="overflow-hidden rounded-lg transition-all duration-300 hover:scale-95 hover:cursor-pointer"
                     >
