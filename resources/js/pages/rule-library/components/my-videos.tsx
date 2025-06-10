@@ -8,30 +8,30 @@ const videos = [
     // Url MP4
     {
         id: 1,
-        src: 'https://www.youtube.com/embed/J0NuOlA2xDc?si=IiGdSgybkKc3-Uem',
+        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
         title: 'Video 1',
-        thumb: '/assets/nokor-tech/images/banners/banner1.png',
+        thumb: '/assets/rule-library/images/video.jpg',
     },
     // Iframe
     {
         id: 2,
-        src: '<iframe width="560" height="315" src="https://www.youtube.com/embed/q1qKv5TBaOA?si=DLEjp-qL6slnc09p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
         title: 'Video 2',
-        thumb: '/assets/nokor-tech/images/thumb/1.png',
+        thumb: '/assets/rule-library/images/video.jpg',
     },
     // Youtube Embed
     {
         id: 3,
-        src: 'https://www.youtube.com/embed/J0NuOlA2xDc?si=IiGdSgybkKc3-Uem',
-        title: 'Video 2',
-        thumb: '/assets/nokor-tech/images/thumb/2.png',
+        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
+        title: 'Video 3',
+        thumb: '/assets/rule-library/images/video.jpg',
     },
     // Locale
     {
         id: 3,
-        src: 'https://www.youtube.com/embed/J0NuOlA2xDc?si=IiGdSgybkKc3-Uem',
-        title: 'Video 3',
-        thumb: '/assets/nokor-tech/images/banners/banner3.png',
+        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
+        title: 'Video 4',
+        thumb: '/assets/rule-library/images/video.jpg',
     },
 ];
 

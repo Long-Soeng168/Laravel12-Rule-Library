@@ -71,5 +71,20 @@ public function news_show($id)
         'itemShow' => $itemShow,
     ]);
 }
+public function collection_show($id)
+{
+       $itemShow = Post::with('images')->find($id);
+       $bannerInDetail = Banner::where('position_code', 'BANNER_IN_VIEW_DETAIL')->orderBy('order_index')->where('status', 'active')->get();
+        // $itemShow = Post::with('images')
+        // ->where('status', 'active')
+        // ->get();
+        //  return  $itemShow;
+    return Inertia::render('rule-library/Detail', [
+        'id' => $id,
+        'bannerInDetail' => $bannerInDetail,
+        'itemShow' => $itemShow,
+    ]);
+}
+
 
 }

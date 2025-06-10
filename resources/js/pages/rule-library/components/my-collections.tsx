@@ -4,68 +4,55 @@ import { useState } from 'react';
 const books = [
     {
         id: 1,
-        title: 'Becoming good at readingBecoming good at reading ',
-        image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+        title: 'Theses',
+        image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80',
         tag: 'New',
         rating: 4.5,
         category: 'Education',
+        short_description:
+            'A collection of academic research papers written by students and researchers. These documents reflect original studies across multiple disciplines and are useful for scholarly reference, research development, and higher education studies.',
     },
     {
         id: 2,
-        title: 'Cambodia Book Fair',
-        image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80',
+        title: 'E-Publications',
+        image: '/assets/rule-library/images/image1.jpg',
         tag: 'Event',
         rating: 4.0,
         category: 'Event',
+        short_description:
+            'Includes digital versions of journals, magazines, newsletters, and research papers. These resources are accessible online and regularly updated to provide current information for learners, educators, and professionals.',
     },
     {
         id: 3,
-        title: 'E-Invoicing Mandatory Next Year',
-        image: '/assets/demo-images/rule-images/image4.png',
+        title: 'Physical Books',
+        image: '/assets/rule-library/images/images2.jpeg',
         tag: 'Featured',
         rating: 5,
         category: 'Business',
+        short_description:
+            'Our library shelves a wide range of printed books in various genres including textbooks, fiction, non-fiction, academic references, and more. These books are available for borrowing or in-library use.',
     },
     {
         id: 4,
-        title: 'Creative Reading Skills',
-        image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=800&q=80',
+        title: 'Video',
+        image: '/assets/rule-library/images/video.jpg',
         tag: 'Popular',
         rating: 3.5,
         category: 'Education',
+        short_description:
+            'This collection consists of educational videos, tutorials, recorded seminars, and documentaries. These multimedia materials are ideal for enhancing visual learning and can be accessed digitally or via physical media.',
     },
     {
         id: 5,
-        title: 'Marketing for Beginners',
-        image: '/assets/demo-images/rule-images/image5.jpeg',
+        title: 'Audio',
+        image: '/assets/rule-library/images/image3.jpg',
         tag: 'New',
         rating: 4.2,
         category: 'Business',
+        short_description:
+            'Includes audiobooks, spoken word resources, recorded lectures, and language learning tools. These are perfect for auditory learners and are available on physical media or through our digital platforms.',
     },
-    {
-        id: 6,
-        title: 'Digital Skills in 2025',
-        image: '/assets/demo-images/rule-images/image4.png',
-        tag: 'Trending',
-        rating: 4.8,
-        category: 'Technology',
-    },
-    {
-        id: 8,
-        title: 'Leadership That Lasts',
-        image: 'https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=800&q=80',
-        tag: 'Featured',
-        rating: 4.7,
-        category: 'Business',
-    },
-    {
-        id: 9,
-        title: 'AI and the Future of Work',
-        image: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=800&q=80',
-        tag: 'Tech',
-        rating: 5,
-        category: 'Technology',
-    },
+    
 ];
 
 const MyCollections = () => {
@@ -77,13 +64,12 @@ const MyCollections = () => {
         <section className="mx-auto max-w-screen-2xl px-4 py-14 lg:px-20">
             {/* Title */}
             <div className="mx-auto mb-10 max-w-4xl text-center">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Top Book Picks</h2>
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Library Collection Description</h2>
                 <p className="mt-2 text-gray-500 dark:text-gray-300">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias necessitatibus ipsam itaque deleniti distinctio dolore. Quam,
-                    doloribus aperiam nam iusto, omnis corporis ipsam, vero deserunt quae vel officia neque culpa.
+                    Our library provides a rich and diverse collection of materials in both physical and digital formats to support research,
+                    learning, and personal growth. Below are the key types of resources available in our collection:
                 </p>
             </div>
-
             {/* Grid */}
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {filteredBooks.map((book) => (
@@ -98,7 +84,7 @@ const MyCollections = () => {
                             {/* Gradient Overlay + Button */}
                             <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-4 opacity-100 transition sm:opacity-0 sm:group-hover:opacity-100">
                                 <Link
-                                    href={`/detail/${book.id}`}
+                                    href={`/collections/${book.id}`}
                                     className="rounded-full bg-white px-4 py-1.5 text-xs font-medium text-blue-600 transition hover:bg-yellow-400 hover:text-white"
                                 >
                                     Read Now
@@ -106,8 +92,9 @@ const MyCollections = () => {
                             </div>
                         </div>
                         {/* Content */}
-                        <div className="space-y-1 p-4">
+                        <div className="space-y-1 py-4">
                             <h3 className="line-clamp-2 text-base font-semibold text-gray-800 dark:text-white">{book.title}</h3>
+                            <p className="line-clamp-2 text-[14px] text-gray-800 dark:text-white">{book.short_description}</p>
                         </div>
                     </div>
                 ))}

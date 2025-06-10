@@ -18,7 +18,6 @@ const MyTopHeader = () => {
                     <Phone size={16} />
                     <span className="truncate">010 775589</span>
                 </div>
-
                 <div className="flex-shrink-0">
                     <MyLanguageSwitcher />
                 </div>
@@ -28,7 +27,7 @@ const MyTopHeader = () => {
                     <div className="flex items-center gap-1">
                         {auth?.user ? (
                             <Link prefetch href="/dashboard">
-                                <Avatar className="size-8 overflow-hidden rounded-full">
+                                <Avatar className="size-8 bg-true-primary-six overflow-hidden rounded-full">
                                     <AvatarImage src={`/assets/images/users/thumb/${auth?.user?.image}`} alt={auth?.user?.name} />
 
                                     <AvatarFallback className="rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
