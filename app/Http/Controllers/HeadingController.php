@@ -74,20 +74,20 @@ class HeadingController extends Controller implements HasMiddleware
             'title' => 'required|string|max:255',
             'title_kh' => 'nullable|string|max:255',
             'code' => 'required|string|max:255|unique:headings,code',
-            'short_description' => 'nullable|string|max:255',
-            'short_description_kh' => 'nullable|string|max:255',
+            'short_description' => 'nullable|string|max:1000',
+            'short_description_kh' => 'nullable|string|max:1000',
             'status' => 'nullable|string|in:active,inactive',
         ]);
 
         $validated['created_by'] = $request->user()->id;
         $validated['updated_by'] = $request->user()->id;
 
-      
+
         foreach ($validated as $key => $value) {
-    if ($value === '') {
-        $validated[$key] = null;
-    }
-}
+            if ($value === '') {
+                $validated[$key] = null;
+            }
+        }
 
         Heading::create($validated);
 
@@ -118,20 +118,20 @@ class HeadingController extends Controller implements HasMiddleware
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'title_kh' => 'nullable|string|max:255',
-            'code' => 'required|string|max:255|unique:headings,code,'. $heading->id,
-            'short_description' => 'nullable|string|max:255',
-            'short_description_kh' => 'nullable|string|max:255',
+            'code' => 'required|string|max:255|unique:headings,code,' . $heading->id,
+            'short_description' => 'nullable|string|max:1000',
+            'short_description_kh' => 'nullable|string|max:1000',
             'status' => 'nullable|string|in:active,inactive',
         ]);
 
         $validated['updated_by'] = $request->user()->id;
 
-      
+
         foreach ($validated as $key => $value) {
-    if ($value === '') {
-        $validated[$key] = null;
-    }
-}
+            if ($value === '') {
+                $validated[$key] = null;
+            }
+        }
         $heading->update($validated);
 
         return redirect()->back()->with('success', 'Heading created successfully!');
@@ -156,7 +156,7 @@ class HeadingController extends Controller implements HasMiddleware
      */
     public function destroy(Heading $heading)
     {
-        
+
         $heading->delete();
         return redirect()->back()->with('success', 'Position deleted successfully.');
     }

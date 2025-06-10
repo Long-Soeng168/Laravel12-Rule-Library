@@ -1,16 +1,14 @@
 import MyDialogCancelButton from '@/components/my-dialog-cancel-button';
 import { AutosizeTextarea } from '@/components/ui/autosize-textarea';
 import { Button } from '@/components/ui/button';
-import { FileInput, FileUploader, FileUploaderContent, FileUploaderItem } from '@/components/ui/file-upload';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { ProgressWithValue } from '@/components/ui/progress-with-value';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import useTranslation from '@/hooks/use-translation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm as inertiaUseForm } from '@inertiajs/react';
-import { CloudUpload, Loader, Paperclip } from 'lucide-react';
-import { useState } from 'react';
+import { Loader } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
@@ -20,8 +18,8 @@ const formSchema = z.object({
     title_kh: z.string().max(255).optional(),
     code: z.string().min(1).max(255),
     status: z.string().max(255).optional(),
-    short_description: z.string().max(500).optional(),
-    short_description_kh: z.string().max(500).optional(),
+    short_description: z.string().max(1000).optional(),
+    short_description_kh: z.string().max(1000).optional(),
 });
 
 export default function Create({
@@ -35,7 +33,7 @@ export default function Create({
 }) {
     // ===== Start Our Code =====
     const { t } = useTranslation();
-   
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -115,7 +113,7 @@ export default function Create({
                                 <FormItem>
                                     <FormLabel>{t('Title')}</FormLabel>
                                     <FormControl>
-                                         <AutosizeTextarea placeholder={t("Title")} type="text" {...field} />
+                                        <AutosizeTextarea placeholder={t('Title')} type="text" {...field} />
                                     </FormControl>
                                     <FormMessage>{errors.title && <div>{errors.title}</div>}</FormMessage>
                                 </FormItem>
@@ -131,7 +129,7 @@ export default function Create({
                                 <FormItem>
                                     <FormLabel>{t('Title Khmer')}</FormLabel>
                                     <FormControl>
-                                       <AutosizeTextarea placeholder={t("Title Khmer")} type="text" {...field} />
+                                        <AutosizeTextarea placeholder={t('Title Khmer')} type="text" {...field} />
                                     </FormControl>
                                     <FormMessage>{errors.title_kh && <div>{errors.title_kh}</div>}</FormMessage>
                                 </FormItem>
@@ -189,7 +187,7 @@ export default function Create({
                         <FormItem>
                             <FormLabel>{t('Short Description')}</FormLabel>
                             <FormControl>
-                                <AutosizeTextarea placeholder={t("Short Description")} className="resize-none" {...field} />
+                                <AutosizeTextarea placeholder={t('Short Description')} className="resize-none" {...field} />
                             </FormControl>
                             <FormMessage>{errors.short_description && <div>{errors.short_description}</div>}</FormMessage>
                         </FormItem>
@@ -203,7 +201,7 @@ export default function Create({
                         <FormItem>
                             <FormLabel>{t('Short Description Khmer')}</FormLabel>
                             <FormControl>
-                                <AutosizeTextarea placeholder={t("Short Description Khmer")} className="resize-none" {...field} />
+                                <AutosizeTextarea placeholder={t('Short Description Khmer')} className="resize-none" {...field} />
                             </FormControl>
                             <FormMessage>{errors.short_description_kh && <div>{errors.short_description_kh}</div>}</FormMessage>
                         </FormItem>
@@ -219,7 +217,7 @@ export default function Create({
                                 <Loader />
                             </span>
                         )}
-                       {processing ? t('Submitting') : t('Submit')}
+                        {processing ? t('Submitting') : t('Submit')}
                     </Button>
                 )}
             </form>
