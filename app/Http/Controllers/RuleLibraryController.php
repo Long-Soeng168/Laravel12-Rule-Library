@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Banner;
 use App\Models\Item;
 use App\Models\Page;
+use App\Models\Post;
 
 class RuleLibraryController extends Controller
 {
@@ -15,12 +16,16 @@ class RuleLibraryController extends Controller
        $newBooks = Item::where('category_code', 'NEW_BOOKS')->with('images')->get();
        $researchPaper = Item::where('category_code', 'RESEARCH_PAPERS')->with('images')->get(); 
        $heroSection = Page::where('code', 'HOME_PAGE')->with('images')->first();      
-        // return $heroSection;
+        $newPost = Post::with('images')
+        ->where('status', 'active')
+        ->get();
+        // return $newPost;
         return Inertia::render('rule-library/Index',[
             'slide' => $slide,
             'newBooks' => $newBooks,
             'researchPaper' => $researchPaper,
             'heroSection' => $heroSection,
+            'newPost' => $newPost,
         ]);
     }
     public function about(){
@@ -52,11 +57,19 @@ class RuleLibraryController extends Controller
     public function contact(){
         return Inertia::render('rule-library/Contact');
     }
+public function news_show($id)
+{
+       $itemShow = Post::with('images')->find($id);
+       $bannerInDetail = Banner::where('position_code', 'BANNER_IN_VIEW_DETAIL')->orderBy('order_index')->where('status', 'active')->get();
+        // $itemShow = Post::with('images')
+        // ->where('status', 'active')
+        // ->get();
+        //  return  $itemShow;
+    return Inertia::render('rule-library/Detail', [
+        'id' => $id,
+        'bannerInDetail' => $bannerInDetail,
+        'itemShow' => $itemShow,
+    ]);
+}
 
-     public function detail($id){
-        return Inertia::render('rule-library/Detail',[
-            'id' => $id,
-        ]);
-    }
-    
 }

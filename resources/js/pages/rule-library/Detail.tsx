@@ -1,42 +1,51 @@
-import Layout from "./Layout";
-
+import { usePage } from '@inertiajs/react';
+import Layout from './Layout';
 
 const Detail = () => {
-  return (
-    <Layout>
-        <div className="flex flex-col gap-10 lg:flex-row max-w-screen-2xl mx-auto px-6 xl:px-20 py-10">
-        {/* Main Content */}
-        <div className="flex-1">
-          <h1 className="text-2xl font-bold mb-4">Static Page Title</h1>
-          <img
-            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80"
-            alt="Page Image"
-            className="w-full h-auto aspect-[16/9] object-cover rounded-lg shadow-md mb-6"
-          />
-          <div
-            className="product-description prose max-w-none overflow-hidden"
-            dangerouslySetInnerHTML={{
-              __html: `<p>This is a static page description. You can replace this HTML content with any static markup you'd like to show here.</p>`,
-            }}
-          ></div>
-        </div>
+    const { bannerInDetail } = usePage().props;
+    const { itemShow } = usePage().props;
+    console.log(itemShow);
+    // const { id } = params
+    return (
+        <Layout>
+            <div className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-6 py-10 lg:flex-row xl:px-20">
+                {/* Main Content */}
+                <div key={itemShow?.id} className="flex-1">
+                    <h1 className="mb-4 text-2xl font-bold">{itemShow?.title}</h1>
+                    <img
+                        src={`/assets/images/posts/${itemShow?.images[0].image}`}
+                        alt="Page Image"
+                        className="mb-6 aspect-[16/9] h-auto w-full rounded-lg object-cover shadow-md"
+                    />
+                    <div
+                        className="product-description prose max-w-none overflow-hidden"
+                        dangerouslySetInnerHTML={{
+                            __html: itemShow?.short_description ,
+                        }}
+                    ></div>
 
-        {/* Sidebar Banners */}
-        <div className="w-full lg:w-80 flex flex-col gap-6 overflow-hidden">
-          <img
-            src="/assets/demo-images/rule-images/banner2.webp"
-            alt="Static Banner 1"
-            className="w-full h-auto object-cover rounded-md shadow"
-          />
-          <img
-            src="/assets/demo-images/rule-images/banner1.webp"
-            alt="Static Banner 2"
-            className="w-full h-auto object-cover rounded-md shadow"
-          />
-        </div>
-      </div>
-    </Layout>
-  );
+                    <div
+                        className="product-description mt-4 prose max-w-none overflow-hidden"
+                        dangerouslySetInnerHTML={{
+                            __html: itemShow?.long_description ,
+                        }}
+                    ></div>
+                </div>
+
+                {/* Sidebar Banners */}
+                <div className="flex w-full flex-col gap-6 overflow-hidden lg:w-80">
+                    {bannerInDetail?.map((item) => (
+                        <img
+                            key={item.id}
+                            src={`/assets/images/banners/${item.image}`}
+                            alt="Static Banner 1"
+                            className="h-auto w-full rounded-md object-cover shadow"
+                        />
+                    ))}
+                </div>
+            </div>
+        </Layout>
+    );
 };
 
 export default Detail;
