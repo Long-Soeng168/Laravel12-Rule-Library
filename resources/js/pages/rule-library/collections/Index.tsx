@@ -1,23 +1,24 @@
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+import { usePage } from '@inertiajs/react';
 import { SlashIcon } from 'lucide-react';
-import Layout from './Layout';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from './components/ui/breadcrumb';
-import MyResources from './components/my-resources';
+import Layout from '../Layout';
+import MyItemTableData from '../components/my-item-table-data';
 
-const Resources = () => {
+const Collections = () => {
+    const { banner } = usePage().props;
     return (
         <Layout>
             <div className="relative flex h-[60vh] w-full flex-col items-center justify-center overflow-hidden text-white">
                 {/* Background Image with Dark Overlay */}
                 <img
-                    src="/assets/demo-images/rule-images/slide1.jpg"
+                    src={`/assets/images/banner_positions/${banner?.banner}`}
                     alt="Contact Background"
                     className="absolute inset-0 z-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 z-10 bg-black/50" />
-
                 {/* Title and Breadcrumb */}
                 <div className="relative z-20 px-4 text-center">
-                    <h1 className="font-noto-san-extra-light text-4xl md:text-6xl">Resources</h1>
+                    <h1 className="font-noto-san-extra-light text-4xl md:text-6xl">Collections</h1>
                     <div className="mt-6">
                         <Breadcrumb>
                             <BreadcrumbList className="flex justify-center gap-2">
@@ -30,8 +31,8 @@ const Resources = () => {
                                     <SlashIcon className="h-4 w-4 text-gray-400" />
                                 </BreadcrumbSeparator>
                                 <BreadcrumbItem>
-                                    <BreadcrumbLink href="#/resource" className="text-gray-400">
-                                        Resources
+                                    <BreadcrumbLink href="#/collection" className="text-gray-400">
+                                        Collections
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
@@ -39,9 +40,16 @@ const Resources = () => {
                     </div>
                 </div>
             </div>
-            <MyResources/>
+            <div className="mx-auto my-10 max-w-4xl text-center">
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Library Collection Description</h2>
+                <p className="mt-2 text-gray-500 dark:text-gray-300">
+                    Our library provides a rich and diverse collection of materials in both physical and digital formats to support research,
+                    learning, and personal growth. Below are the key types of resources available in our collection:
+                </p>
+            </div>
+            <MyItemTableData />
         </Layout>
     );
 };
 
-export default Resources;
+export default Collections;
