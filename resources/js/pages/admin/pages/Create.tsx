@@ -387,9 +387,8 @@ export default function Create() {
                             />
                         </div>
                     </div>
-
                     <div className="grid grid-cols-12 gap-4">
-                        <div className="col-span-6">
+                        <div className="col-span-12">
                             <FormField
                                 control={form.control}
                                 name="parent_id"
@@ -457,7 +456,7 @@ export default function Create() {
                             />
                         </div>
 
-                        <div className="col-span-6">
+                        {/* <div className="col-span-6">
                             <FormField
                                 control={form.control}
                                 name="position_code"
@@ -523,7 +522,7 @@ export default function Create() {
                                     </FormItem>
                                 )}
                             />
-                        </div>
+                        </div> */}
                     </div>
                     <FormField
                         control={form.control}

@@ -149,6 +149,12 @@ export function AppSidebar() {
             icon: FilePenLineIcon,
             url: '/admin/posts',
         },
+         {
+                    title: t('Pages'),
+                    permission: 'page view',
+                    icon: AppWindowIcon,
+                    url: '/admin/pages',
+                },
         // {
         //     title: t('Pages'),
         //     permission: 'page view',
@@ -182,26 +188,26 @@ export function AppSidebar() {
         //         },
         //     ],
         // },
-        {
-            title: t('Pages'),
-            permission: 'page view',
-            url: '/admin/pages',
-            icon: AppWindowIcon,
-            subItems: [
-                {
-                    title: t('Pages'),
-                    permission: 'page view',
-                    icon: AppWindowIcon,
-                    url: '/admin/pages',
-                },
-                {
-                    title: t('Positions'),
-                    permission: 'page view',
-                    icon: ReplaceAllIcon,
-                    url: '/admin/page_positions',
-                },
-            ],
-        },
+        // {
+        //     title: t('Pages'),
+        //     permission: 'page view',
+        //     url: '/admin/pages',
+        //     icon: AppWindowIcon,
+        //     subItems: [
+        //         {
+        //             title: t('Pages'),
+        //             permission: 'page view',
+        //             icon: AppWindowIcon,
+        //             url: '/admin/pages',
+        //         },
+        //         {
+        //             title: t('Positions'),
+        //             permission: 'page view',
+        //             icon: ReplaceAllIcon,
+        //             url: '/admin/page_positions',
+        //         },
+        //     ],
+        // },
         // {
         //     title: t('Messages'),
         //     permission: 'message view',
