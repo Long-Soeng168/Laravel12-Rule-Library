@@ -10,13 +10,14 @@ import { MyLanguageSwitcher } from './my-language-switcher';
 const MyTopHeader = () => {
     const getInitials = useInitials();
     const { auth } = usePage().props;
+    const { application_info } = usePage().props;
     return (
         <div className="bg-background mt-1 px-4 py-1 sm:px-6 md:px-10 xl:px-20">
             <div className="text-foreground mx-auto flex max-w-screen-2xl flex-wrap items-center justify-end gap-4 text-sm">
                 {/* Left Section (Language Switcher) */}
                 <div className="flex items-center gap-1">
                     <Phone size={16} />
-                    <span className="truncate">010 775589</span>
+                    <span className="truncate">{application_info?.phone}</span>
                 </div>
                 <div className="flex-shrink-0">
                     <MyLanguageSwitcher />

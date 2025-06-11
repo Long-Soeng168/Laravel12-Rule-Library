@@ -54,11 +54,11 @@ const MyTableData = () => {
                             <TableHead className="text-left">{t('Action')}</TableHead>
                             <TableHead>{t('Image')}</TableHead>
                             {/* <TableHead>{t('Link')}</TableHead> */}
-                            <TableHead onClick={() => handleSort('shop_id')}>
+                            {/* <TableHead onClick={() => handleSort('shop_id')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Shop')}
                                 </span>
-                            </TableHead>
+                            </TableHead> */}
                             <TableHead onClick={() => handleSort('code')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Code')}
@@ -69,11 +69,11 @@ const MyTableData = () => {
                                     <ArrowUpDown size={16} /> {t('Name')}
                                 </span>
                             </TableHead>
-                            <TableHead onClick={() => handleSort('price')}>
+                            {/* <TableHead onClick={() => handleSort('price')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Price')}
                                 </span>
-                            </TableHead>
+                            </TableHead> */}
                             {/* <TableHead onClick={() => handleSort('short_description')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Short Description')}
@@ -89,7 +89,7 @@ const MyTableData = () => {
                                     <ArrowUpDown size={16} /> {t('Category Code')}
                                 </span>
                             </TableHead>
-                            <TableHead onClick={() => handleSort('brand_code')}>
+                            {/* <TableHead onClick={() => handleSort('brand_code')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Brand Code')}
                                 </span>
@@ -103,12 +103,12 @@ const MyTableData = () => {
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Body Type Code')}
                                 </span>
-                            </TableHead>
-                            <TableHead onClick={() => handleSort('total_view_counts')}>
+                            </TableHead> */}
+                            {/* <TableHead onClick={() => handleSort('total_view_counts')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Total View')}
                                 </span>
-                            </TableHead>
+                            </TableHead> */}
                             <TableHead onClick={() => handleSort('created_at')}>
                                 <span className="flex cursor-pointer items-center">
                                     <ArrowUpDown size={16} /> {t('Created at')}
@@ -203,14 +203,14 @@ const MyTableData = () => {
                                         '---'
                                     )}
                                 </TableCell> */}
-                                <TableCell>
+                                {/* <TableCell>
                                     <Link className="hover:underline" href={`/admin/shops/${item.shop_id}`}>
                                         <Badge variant='outline' className='hover:underline'>{item.shop?.name || '---'}</Badge>
                                     </Link>
-                                </TableCell>
+                                </TableCell> */}
                                 <TableCell>{item.code || '---'}</TableCell>
                                 <TableCell>{item.name || '---'}</TableCell>
-                                <TableCell>{item.price || '---'}</TableCell>
+                                {/* <TableCell>{item.price || '---'}</TableCell> */}
                                 {/* <TableCell>{item.short_description || '---'}</TableCell> */}
                                 <TableCell>
                                     {hasPermission('item update') ? (
@@ -225,12 +225,12 @@ const MyTableData = () => {
                                     )}
                                 </TableCell>
                                 <TableCell>{item.category_code || '---'}</TableCell>
-                                <TableCell>{item.brand_code || '---'}</TableCell>
+                                {/* <TableCell>{item.brand_code || '---'}</TableCell>
                                 <TableCell>{item.model_code || '---'}</TableCell>
                                 <TableCell>{item.body_type_code || '---'}</TableCell>
                                 <TableCell>
                                     {item.total_view_counts ? <span className="flex items-center gap-1">{item.total_view_counts}</span> : '---'}
-                                </TableCell>
+                                </TableCell> */}
                                 <TableCell className="whitespace-nowrap">
                                     {item.created_at
                                         ? new Date(item.created_at).toLocaleDateString('en-UK', {

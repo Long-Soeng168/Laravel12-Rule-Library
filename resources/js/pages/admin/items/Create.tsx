@@ -29,10 +29,10 @@ const formSchema = z.object({
     status: z.string().optional(),
     source: z.string().optional(),
     category_code: z.string().optional(),
-    shop_id: z.any().optional(),
-    brand_code: z.string().optional(),
-    model_code: z.string().optional(),
-    body_type_code: z.string().optional(),
+    // shop_id: z.any().optional(),
+    // brand_code: z.string().optional(),
+    // model_code: z.string().optional(),
+    // body_type_code: z.string().optional(),
     post_date: z.coerce.date().optional(),
     images: z.string().optional(),
 });
@@ -68,10 +68,10 @@ export default function Create() {
             link: editData?.link || '',
             status: editData?.status || 'active',
             category_code: editData?.category_code?.toString() || '',
-            shop_id: editData?.shop_id?.toString() || '',
-            brand_code: editData?.brand_code?.toString() || '',
-            model_code: editData?.model_code?.toString() || '',
-            body_type_code: editData?.body_type_code?.toString() || '',
+            // shop_id: editData?.shop_id?.toString() || '',
+            // brand_code: editData?.brand_code?.toString() || '',
+            // model_code: editData?.model_code?.toString() || '',
+            // body_type_code: editData?.body_type_code?.toString() || '',
             // post_date: editData?.id ? new Date(editData?.post_date) : new Date(),
         },
     });
@@ -204,7 +204,7 @@ export default function Create() {
                     </div>
 
                     <div className="grid grid-cols-12 gap-8">
-                        <div className="col-span-6">
+                        <div className="col-span-12">
                             <FormField
                                 control={form.control}
                                 name="code"
@@ -220,85 +220,6 @@ export default function Create() {
                                 )}
                             />
                         </div>
-                        <div className="col-span-6">
-                            <FormField
-                                control={form.control}
-                                name="shop_id"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col" key={field.value}>
-                                        <FormLabel>{t('shop')}</FormLabel>
-                                        <Popover>
-                                            <PopoverTrigger asChild>
-                                                <FormControl>
-                                                    <Button
-                                                        variant="outline"
-                                                        role="combobox"
-                                                        className={cn('w-full justify-between', !field.value && 'text-muted-foreground')}
-                                                    >
-                                                        {field.value
-                                                            ? (() => {
-                                                                  const shop = shops?.find((shop) => shop.id == field.value);
-                                                                  return shop ? `${shop.name}` : '';
-                                                              })()
-                                                            : t('Select shop')}
-
-                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                    </Button>
-                                                </FormControl>
-                                            </PopoverTrigger>
-                                            <PopoverContent className="p-0">
-                                                <Command>
-                                                    <CommandInput placeholder="Search shop..." />
-                                                    <CommandList>
-                                                        <CommandEmpty>{t('No data')}</CommandEmpty>
-                                                        <CommandGroup>
-                                                            <CommandItem
-                                                                value=""
-                                                                onSelect={() => {
-                                                                    form.setValue('shop_id', '');
-                                                                }}
-                                                            >
-                                                                <Check
-                                                                    className={cn('mr-2 h-4 w-4', '' == field.value ? 'opacity-100' : 'opacity-0')}
-                                                                />
-                                                                {t('Select shop')}
-                                                            </CommandItem>
-                                                            {shops?.map((shop) => (
-                                                                <CommandItem
-                                                                    value={shop.name}
-                                                                    key={shop.id}
-                                                                    onSelect={() => {
-                                                                        form.setValue('shop_id', shop.id);
-                                                                    }}
-                                                                >
-                                                                    <Check
-                                                                        className={cn(
-                                                                            'mr-2 h-4 w-4',
-                                                                            shop.id === field.value ? 'opacity-100' : 'opacity-0',
-                                                                        )}
-                                                                    />
-                                                                    {shop.logo && (
-                                                                        <img
-                                                                            className="size-6 object-contain"
-                                                                            src={`/assets/images/shops/thumb/${shop.logo}`}
-                                                                        />
-                                                                    )}
-                                                                    {shop.name}
-                                                                    {/* {shop.name_kh && `(${shop.name_kh})`} */}
-                                                                </CommandItem>
-                                                            ))}
-                                                        </CommandGroup>
-                                                    </CommandList>
-                                                </Command>
-                                            </PopoverContent>
-                                        </Popover>
-                                        <FormDescription>{t('Select the category where this item belong to.')}</FormDescription>
-                                        <FormMessage>{errors.shop_id && <div>{errors.shop_id}</div>}</FormMessage>
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
-
                         <div className="col-span-12">
                             <FormField
                                 control={form.control}
@@ -445,242 +366,7 @@ export default function Create() {
                                 )}
                             />
                         </div>
-
-                        <div className="col-span-6">
-                            <FormField
-                                control={form.control}
-                                name="brand_code"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col" key={field.value}>
-                                        <FormLabel>{t('Brand')}</FormLabel>
-                                        <Popover>
-                                            <PopoverTrigger asChild>
-                                                <FormControl>
-                                                    <Button
-                                                        variant="outline"
-                                                        role="combobox"
-                                                        className={cn('w-full justify-between', !field.value && 'text-muted-foreground')}
-                                                    >
-                                                        {field.value
-                                                            ? (() => {
-                                                                  const brand = itemBrands?.find((brand) => brand.code === field.value);
-                                                                  return brand ? `${brand.name} (${brand.name_kh})` : '';
-                                                              })()
-                                                            : t('Select brand')}
-
-                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                    </Button>
-                                                </FormControl>
-                                            </PopoverTrigger>
-                                            <PopoverContent className="p-0">
-                                                <Command>
-                                                    <CommandInput placeholder="Search brand..." />
-                                                    <CommandList>
-                                                        <CommandEmpty>{t('No data')}</CommandEmpty>
-                                                        <CommandGroup>
-                                                            <CommandItem
-                                                                value=""
-                                                                onSelect={() => {
-                                                                    form.setValue('brand_code', '');
-                                                                }}
-                                                            >
-                                                                <Check
-                                                                    className={cn('mr-2 h-4 w-4', '' == field.value ? 'opacity-100' : 'opacity-0')}
-                                                                />
-                                                                {t('Select brand')}
-                                                            </CommandItem>
-                                                            {itemBrands?.map((brand) => (
-                                                                <CommandItem
-                                                                    value={brand.name}
-                                                                    key={brand.code}
-                                                                    onSelect={() => {
-                                                                        form.setValue('brand_code', brand.code);
-                                                                        form.setValue('model_code', '');
-                                                                    }}
-                                                                >
-                                                                    <Check
-                                                                        className={cn(
-                                                                            'mr-2 h-4 w-4',
-                                                                            brand.code === field.value ? 'opacity-100' : 'opacity-0',
-                                                                        )}
-                                                                    />
-                                                                    {brand.image && (
-                                                                        <img
-                                                                            className="size-6 object-contain"
-                                                                            src={`/assets/images/item_brands/thumb/${brand.image}`}
-                                                                        />
-                                                                    )}
-                                                                    {brand.name}
-                                                                    {/* {brand.name_kh && `(${brand.name_kh})`} */}
-                                                                </CommandItem>
-                                                            ))}
-                                                        </CommandGroup>
-                                                    </CommandList>
-                                                </Command>
-                                            </PopoverContent>
-                                        </Popover>
-                                        <FormDescription>{t('Select the model where this item belong to.')}</FormDescription>
-                                        <FormMessage>{errors.brand_code && <div>{errors.brand_code}</div>}</FormMessage>
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
-
-                        <div className="col-span-6">
-                            <FormField
-                                control={form.control}
-                                name="model_code"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col" key={field.value}>
-                                        <FormLabel>{t('Model')}</FormLabel>
-                                        <Popover>
-                                            <PopoverTrigger asChild>
-                                                <FormControl>
-                                                    <Button
-                                                        variant="outline"
-                                                        role="combobox"
-                                                        className={cn('w-full justify-between', !field.value && 'text-muted-foreground')}
-                                                    >
-                                                        {field.value
-                                                            ? (() => {
-                                                                  const model = itemModels?.find((model) => model.code === field.value);
-                                                                  return model ? `${model.name} (${model.name_kh})` : '';
-                                                              })()
-                                                            : t('Select model')}
-
-                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                    </Button>
-                                                </FormControl>
-                                            </PopoverTrigger>
-                                            <PopoverContent className="p-0">
-                                                <Command>
-                                                    <CommandInput placeholder="Search model..." />
-                                                    <CommandList>
-                                                        <CommandEmpty>{t('No data')}</CommandEmpty>
-                                                        <CommandGroup>
-                                                            <CommandItem
-                                                                value=""
-                                                                onSelect={() => {
-                                                                    form.setValue('model_code', '');
-                                                                }}
-                                                            >
-                                                                <Check
-                                                                    className={cn('mr-2 h-4 w-4', '' == field.value ? 'opacity-100' : 'opacity-0')}
-                                                                />
-                                                                {t('Select model')}
-                                                            </CommandItem>
-                                                            {form.watch('brand_code') &&
-                                                                itemModels
-                                                                    ?.filter((model) => model.brand_code === form.watch('brand_code'))
-                                                                    .map((model) => (
-                                                                        <CommandItem
-                                                                            value={model.name}
-                                                                            key={model.code}
-                                                                            onSelect={() => {
-                                                                                form.setValue('model_code', model.code);
-                                                                            }}
-                                                                        >
-                                                                            <Check
-                                                                                className={cn(
-                                                                                    'mr-2 h-4 w-4',
-                                                                                    model.code === field.value ? 'opacity-100' : 'opacity-0',
-                                                                                )}
-                                                                            />
-                                                                            {model.name}
-                                                                            {/* {model.name_kh && `(${model.name_kh})`} */}
-                                                                        </CommandItem>
-                                                                    ))}
-                                                        </CommandGroup>
-                                                    </CommandList>
-                                                </Command>
-                                            </PopoverContent>
-                                        </Popover>
-                                        <FormDescription>{t('Select Brand first before select Model')}</FormDescription>
-                                        <FormMessage>{errors.model_code && <div>{errors.model_code}</div>}</FormMessage>
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
-
-                        <div className="col-span-6">
-                            <FormField
-                                control={form.control}
-                                name="body_type_code"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col" key={field.value}>
-                                        <FormLabel>{t('Body Type')}</FormLabel>
-                                        <Popover>
-                                            <PopoverTrigger asChild>
-                                                <FormControl>
-                                                    <Button
-                                                        variant="outline"
-                                                        role="combobox"
-                                                        className={cn('w-full justify-between', !field.value && 'text-muted-foreground')}
-                                                    >
-                                                        {field.value
-                                                            ? (() => {
-                                                                  const bodyType = itemBodyTypes?.find((bodyType) => bodyType.code === field.value);
-                                                                  return bodyType ? `${bodyType.name} (${bodyType.name_kh})` : '';
-                                                              })()
-                                                            : t('Select bodyType')}
-
-                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                                    </Button>
-                                                </FormControl>
-                                            </PopoverTrigger>
-                                            <PopoverContent className="p-0">
-                                                <Command>
-                                                    <CommandInput placeholder="Search bodyType..." />
-                                                    <CommandList>
-                                                        <CommandEmpty>{t('No data')}</CommandEmpty>
-                                                        <CommandGroup>
-                                                            <CommandItem
-                                                                value=""
-                                                                onSelect={() => {
-                                                                    form.setValue('body_type_code', '');
-                                                                }}
-                                                            >
-                                                                <Check
-                                                                    className={cn('mr-2 h-4 w-4', '' == field.value ? 'opacity-100' : 'opacity-0')}
-                                                                />
-                                                                {t('Select bodyType')}
-                                                            </CommandItem>
-                                                            {itemBodyTypes?.map((bodyType) => (
-                                                                <CommandItem
-                                                                    value={bodyType.name}
-                                                                    key={bodyType.code}
-                                                                    onSelect={() => {
-                                                                        form.setValue('body_type_code', bodyType.code);
-                                                                    }}
-                                                                >
-                                                                    <Check
-                                                                        className={cn(
-                                                                            'mr-2 h-4 w-4',
-                                                                            bodyType.code === field.value ? 'opacity-100' : 'opacity-0',
-                                                                        )}
-                                                                    />
-                                                                    {bodyType.image && (
-                                                                        <img
-                                                                            className="size-6 object-contain"
-                                                                            src={`/assets/images/item_body_types/thumb/${bodyType.image}`}
-                                                                        />
-                                                                    )}
-                                                                    {bodyType.name} 
-                                                                    {/* {bodyType.name_kh && `(${bodyType.name_kh})`} */}
-                                                                </CommandItem>
-                                                            ))}
-                                                        </CommandGroup>
-                                                    </CommandList>
-                                                </Command>
-                                            </PopoverContent>
-                                        </Popover>
-                                        <FormMessage>{errors.body_type_code && <div>{errors.body_type_code}</div>}</FormMessage>
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
-
-                        <div className="col-span-6">
+                        <div className="col-span-12">
                             <FormField
                                 control={form.control}
                                 name="status"

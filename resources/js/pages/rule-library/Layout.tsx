@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import MyTopHeader from './components/my-top-header'
 import MyNewHeader from './components/my-new-header'
 import MyFooter from './components/my-footer'
+import { Head } from '@inertiajs/react';
 interface LayoutProps {
     children: ReactNode;
 }

@@ -26,10 +26,10 @@ const MyDatabase = () => {
                         <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
                             <a href={item.link}>
                                 <Card className="border-primary bg-background flex cursor-pointer flex-col items-center justify-center gap-2 rounded border border-dashed px-1 py-4 transition-all duration-300 hover:-translate-2 hover:border-solid hover:shadow-[5px_5px_rgba(104,_96,_255,_0.4),_10px_10px_rgba(104,_96,_255,_0.3),_15px_15px_rgba(104,_96,_255,_0.2)]">
-                                    <CardContent className="flex flex-col items-center justify-center">
+                                    <CardContent className="flex flex-col items-center justify-center ">
                                         <img
                                             src={`/assets/images/links/${item.image}`}
-                                            className="mb-2 h-[50px] w-[50px] object-cover md:h-[60px] md:w-[60px]"
+                                            className="mb-2 h-[60px] w-[60px] object-cover md:h-[60px] md:w-[60px]"
                                             alt={item.title}
                                         />
                                         <p className="text-center text-sm font-bold whitespace-nowrap lg:text-lg">{item.title}</p>

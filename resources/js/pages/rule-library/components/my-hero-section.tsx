@@ -48,7 +48,7 @@ const MyHeroSection = () => {
                                 Read More
                                 {false ? <LoaderIcon className="animate-spin" /> : <ArrowRight />}
                             </div>
-                            <div className="absolute top-[40%] left-[20%] h-2 w-2 scale-[1] rounded-full bg-white transition-all duration-300 group-hover:top-[0%] group-hover:left-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-white"></div>
+                            <div className="absolute top-[40%] left-[20%] h-2 w-2 scale-[1] rounded-full  transition-all duration-300 group-hover:top-[0%] group-hover:left-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-white"></div>
                         </Link>
                     </div>
                 </div>
