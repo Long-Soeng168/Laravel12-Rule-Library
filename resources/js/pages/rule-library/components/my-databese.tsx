@@ -29,7 +29,7 @@ const MyDatabase = () => {
                                     <CardContent className="flex flex-col items-center justify-center ">
                                         <img
                                             src={`/assets/images/links/${item.image}`}
-                                            className="mb-2 h-[50px] w-[50px] object-cover md:h-[60px] md:w-[60px]"
+                                            className="mb-2 h-[50px] w-[50px] object-contain md:h-[60px] md:w-[60px]"
                                             alt={item.title}
                                         />
                                         <p className="text-center text-sm font-bold whitespace-nowrap lg:text-lg">{item.title}</p>
