@@ -21,7 +21,6 @@ const About = () => {
         {/* Background Image with Dark Overlay */}
         <img
           src={`/assets/images/banner_positions/${banner?.banner}`}
-          alt="Contact Background"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
         <div className="absolute inset-0 bg-black/50 z-10" />

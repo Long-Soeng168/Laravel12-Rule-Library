@@ -11,8 +11,7 @@ const Resources = () => {
             <div className="relative flex h-[60vh] w-full flex-col items-center justify-center overflow-hidden text-white">
                 {/* Background Image with Dark Overlay */}
                 <img
-                    src="/assets/demo-images/rule-images/slide1.jpg"
-                    alt="Contact Background"
+                    src={`/assets/images/banner_positions/${banner?.banner}`}
                     className="absolute inset-0 z-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 z-10 bg-black/50" />

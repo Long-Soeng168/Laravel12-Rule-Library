@@ -21,13 +21,15 @@ class RuleLibraryController extends Controller
         $newPost = Post::with('images')
             ->where('status', 'active')
             ->get();
-        // return $newPost;
+        $videos = Item::where('category_code', 'VIDEOS')->where('status', 'active')->with('images')->get();
+        // return $videos;
         return Inertia::render('rule-library/Index', [
             'slide' => $slide,
             'newBooks' => $newBooks,
             'researchPaper' => $researchPaper,
             'heroSection' => $heroSection,
             'newPost' => $newPost,
+            'videos' => $videos,
         ]);
     }
     public function about()
@@ -60,7 +62,7 @@ class RuleLibraryController extends Controller
     }
     public function resources()
     {
-        $banner = BannerPosition::where('code', 'RESOURCE_PAGE_BANNER')->first();
+        $banner = BannerPosition::where('code', 'RESOURCES_PAGE_BANNER')->first();
         $query = Item::query();
         $query->where('category_code', 'RESOURCES');
         $query->orderBy('id', 'desc');
@@ -76,7 +78,7 @@ class RuleLibraryController extends Controller
     }
     public function databases()
     {
-        $banner = BannerPosition::where('code', 'DATABASE_PAGE_BANNER')->first();
+        $banner = BannerPosition::where('code', 'DATABASES_PAGE_BANNER')->first();
         $query = Item::query();
         $query->where('category_code', 'DATABASES');
         $query->orderBy('id', 'desc');

@@ -3,45 +3,48 @@ import { useEffect, useState } from 'react';
 import MyHeadingStyle1 from './my-heading-style-1';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from './ui/dialog';
+import { usePage } from '@inertiajs/react';
 
-const videos = [
-    // Url MP4
-    {
-        id: 1,
-        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
-        title: 'Video 1',
-        thumb: '/assets/rule-library/images/video.jpg',
-    },
-    // Iframe
-    {
-        id: 2,
-        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
-        title: 'Video 2',
-        thumb: '/assets/rule-library/images/video.jpg',
-    },
-    // Youtube Embed
-    {
-        id: 3,
-        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
-        title: 'Video 3',
-        thumb: '/assets/rule-library/images/video.jpg',
-    },
-    // Locale
-    {
-        id: 3,
-        src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
-        title: 'Video 4',
-        thumb: '/assets/rule-library/images/video.jpg',
-    },
-];
+// const videos = [
+//     // Url MP4
+//     {
+//         id: 1,
+//         src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
+//         title: 'Video 1',
+//         thumb: '/assets/rule-library/images/video.jpg',
+//     },
+//     // Iframe
+//     {
+//         id: 2,
+//         src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
+//         title: 'Video 2',
+//         thumb: '/assets/rule-library/images/video.jpg',
+//     },
+//     // Youtube Embed
+//     {
+//         id: 3,
+//         src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
+//         title: 'Video 3',
+//         thumb: '/assets/rule-library/images/video.jpg',
+//     },
+//     // Locale
+//     {
+//         id: 3,
+//         src: 'https://www.youtube.com/embed/1VdS89qP3O8?si=lebWECMrb577Mn0e',
+//         title: 'Video 4',
+//         thumb: '/assets/rule-library/images/video.jpg',
+//     },
+// ];
 
 export default function MyVideoGallery() {
+    const { videos } = usePage().props;
+    console.log(videos);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
-    useEffect(() => {
+    useEffect(() => {   
         if (isOpen) {
-            console.log(`Currently displaying: ${videos[currentIndex].title}`);
+            console.log(`Currently displaying: ${videos[currentIndex].name}`);
         }
     }, [currentIndex, isOpen]);
 
@@ -72,7 +75,7 @@ export default function MyVideoGallery() {
                 </div>
                 <div>
                     <div className={`grid grid-cols-2 gap-2 lg:grid-cols-3 xl:grid-cols-4`}>
-                        {videos.map((item, index) => (
+                        {videos?.map((item, index) => (
                             <div
                                 key={index}
                                 className="group cursor-pointer"
@@ -85,15 +88,14 @@ export default function MyVideoGallery() {
                                     <img
                                         width={400}
                                         height={400}
-                                        src={item.thumb} // Replace with dynamic thumbnail if available
-                                        alt={item.title}
+                                        src={`/assets/images/items/${item.images[0].image}`} // Replace with dynamic thumbnail if available
                                         className="aspect-video w-full transform object-cover transition-all duration-300 group-hover:scale-105"
                                     />
                                     <span className="group-hover:bg-true-primary bg-true-primary/80 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/50 p-2 text-white shadow-lg transition-all duration-300 group-hover:scale-110">
                                         <Play size={24} />
                                     </span>
                                 </div>
-                                <div className="text-foreground mt-2 text-center text-base font-medium">{item.title}</div>
+                                <div className="text-foreground mt-2 text-center text-base font-medium">{item.name}</div>
                             </div>
                         ))}
                     </div>
@@ -104,7 +106,7 @@ export default function MyVideoGallery() {
                             <DialogDescription className="hidden" />
                             <div className="relative flex-grow">
                                 <iframe
-                                    src={`${getVideoUrl(videos[currentIndex].src)}?&autoplay=1`} // Ensure autoplay works on YouTube
+                                    src={`${getVideoUrl(videos[currentIndex].link)}?&autoplay=1`} // Ensure autoplay works on YouTube
                                     className="h-full w-full rounded-2xl"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
