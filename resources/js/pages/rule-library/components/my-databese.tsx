@@ -19,7 +19,6 @@ const MyDatabase = () => {
             <div className="flex">
                 <MyHeadingStyle1 title="Our Databases" />
             </div>
-
             <Carousel opts={{ align: 'start' }} className="w-full">
                 <CarouselContent className="p-2">
                     {dataBase?.map((item, index) => (

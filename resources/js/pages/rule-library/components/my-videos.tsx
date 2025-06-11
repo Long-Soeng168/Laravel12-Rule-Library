@@ -95,7 +95,7 @@ export default function MyVideoGallery() {
                                         <Play size={24} />
                                     </span>
                                 </div>
-                                <div className="text-foreground mt-2 text-center text-base font-medium">{item.name}</div>
+                                <div className="text-foreground mt-2 text-start text-base font-medium">{item.name}</div>
                             </div>
                         ))}
                     </div>
