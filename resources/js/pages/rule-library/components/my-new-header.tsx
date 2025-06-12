@@ -16,11 +16,12 @@ const MyNewHeader = () => {
                             alt="logo"
                             className="h-16 w-14 md:h-24 md:w-20"
                         />
-                        <p className="text-[10px] xl:text-xl font-semibold">
+                        <p className="text-lg xl:text-xl font-semibold font-siemreap-regular">
                             {application_info?.name_kh}
                             <br />
                             <span className="font-normal"> {application_info?.name}</span>
                         </p>
+                        
                     </a>
                     <MyMenu />
                 </div>
