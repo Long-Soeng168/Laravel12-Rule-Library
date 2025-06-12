@@ -19,7 +19,7 @@ const Resources = () => {
 
                 {/* Title and Breadcrumb */}
                 <div className="relative z-20 px-4 text-center">
-                    <h1 className="font-noto-san-extra-light text-4xl md:text-6xl">Resources</h1>
+                    <h1 className="font-noto-san-extra-light text-xl md:text-6xl">Resources</h1>
                     <div className="lg:mt-6">
                         <Breadcrumb>
                             <BreadcrumbList className="flex justify-center gap-2">
