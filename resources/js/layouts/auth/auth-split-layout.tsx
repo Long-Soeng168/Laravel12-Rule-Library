@@ -24,21 +24,21 @@ export default function AuthSplitLayout({ children, title, description }: PropsW
                     <AppLogoIcon className="mr-2 size-8 fill-current text-white" />
                     {application_info?.name || name}
                 </Link>
-                {quote && (
+                {/* {quote && (
                     <div className="relative z-20 mt-auto">
                         <blockquote className="space-y-2">
                             <p className="text-lg">&ldquo;{quote.message}&rdquo;</p>
                             <footer className="text-sm text-neutral-300">{quote.author}</footer>
                         </blockquote>
                     </div>
-                )}
+                )} */}
             </div>
             <div className="w-full lg:p-8">
                 <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
                     <Link href={'/'} className="relative z-20 flex items-center justify-center lg:hidden">
                         <AppLogoIcon className="h-10 fill-current text-black sm:h-12" />
                     </Link>
-                    <AuthTabs />
+                    {/* <AuthTabs /> */}
                     <div className="flex flex-col items-start gap-2 text-left sm:items-center sm:text-center">
                         <h1 className="text-xl font-medium">{title}</h1>
                         <p className="text-muted-foreground text-sm text-balance">{description}</p>

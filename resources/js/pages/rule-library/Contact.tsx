@@ -1,4 +1,4 @@
-import { usePage } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import { Mail, MapPinCheck, PhoneCall } from 'lucide-react';
 import { MyFooterSocialTooltip } from './components/my-footer-social-tooltip';
 import Layout from './Layout';
@@ -44,6 +44,7 @@ const Contact = () => {
     // console.log(application_info)
     return (
         <Layout>
+            <Head title="Contact Us" />
             <section className="mb-32">
                 {/* Map Section */}
                 <a href={application_info?.google_map} id="map" className="relative h-[480px] overflow-hidden bg-cover bg-[50%] bg-no-repeat">
