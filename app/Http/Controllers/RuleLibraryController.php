@@ -98,8 +98,10 @@ class RuleLibraryController extends Controller
     public function detail($id)
     {
         $showData = Item::findOrFail($id);
+        $relatedPosts = Item::with('category', 'images')->where('id', '!=', $id)->where('category_code', $showData->category_code)->orderBy('id', 'desc')->limit(6)->get();
         return Inertia::render('rule-library/Detail', [
             'showData' => $showData->load('images', 'category'),
+            'relatedPosts' => $relatedPosts,
         ]);
     }
 

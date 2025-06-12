@@ -38,7 +38,7 @@ export const TracingBeam = ({ children, className }) => {
       ref={ref}
       className={cn("relative mx-auto h-full w-full max-w-6xl", className)}
     >
-      <div className="absolute top-0 pl-2 -left-4 md:-left-20">
+      {/* <div className="absolute top-0 pl-2 -left-4 md:-left-20">
         <motion.div
           transition={{
             duration: 0.2,
@@ -58,8 +58,8 @@ export const TracingBeam = ({ children, className }) => {
               delay: 0.5,
             }}
             animate={{
-              backgroundColor: scrollYProgress.get() > 0 ? "white" : "#10b981",
-              borderColor: scrollYProgress.get() > 0 ? "white" : "#059669",
+              backgroundColor: scrollYProgress.get() > 0 ? "white" : "#fdc700",
+              borderColor: scrollYProgress.get() > 0 ? "white" : "#ffff",
             }}
             className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
@@ -109,7 +109,7 @@ export const TracingBeam = ({ children, className }) => {
             </motion.linearGradient>
           </defs>
         </svg>
-      </div>
+      </div> */}
       <div ref={contentRef}>{children}</div>
     </motion.div>
   );
