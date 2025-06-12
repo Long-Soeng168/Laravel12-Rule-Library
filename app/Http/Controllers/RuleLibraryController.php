@@ -16,7 +16,7 @@ class RuleLibraryController extends Controller
     public function index()
     {
         $slide = Banner::where('position_code', 'SLIDE_SHOW')->orderBy('order_index')->where('status', 'active')->get();
-        $newBooks = Item::where('category_code', 'NEW_BOOKS')->with('images')->get();
+        $newBooks = Item::where('category_code', 'NEW_BOOKS')->with('images')->limit(12)->get();
         $researchPaper = Item::where('category_code', 'RESEARCH_PAPERS')->with('images')->get();
         $heroSection = Page::where('code', 'HOME_PAGE')->with('images')->first();
         $newPost = Post::with('images')
@@ -112,6 +112,29 @@ class RuleLibraryController extends Controller
         $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
 
         return Inertia::render('rule-library/news/Index', [
+            'tableData' => $tableData,
+            'filters' => [
+                'search' => $search
+            ]
+        ]);
+    }
+
+     public function new_books(Request $request)
+    {
+        $search = $request->input('search', '');
+
+        $query = Item::where('category_code', 'NEW_BOOKS')->with('images');
+
+        if ($search) {
+            $query->where(function ($sub_query) use ($search) {
+                $sub_query->where('name', 'LIKE', "%{$search}%")
+                    ->orWhere('name_kh', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
+
+        return Inertia::render('rule-library/newBook/Index', [
             'tableData' => $tableData,
             'filters' => [
                 'search' => $search
