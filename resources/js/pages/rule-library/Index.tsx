@@ -1,4 +1,4 @@
-import { usePage } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import MyDatabase from './components/my-databese';
 import MyHeroSection from './components/my-hero-section';
 import MyNews from './components/my-news';
@@ -15,6 +15,7 @@ const Index = () => {
 //   console.log(slide);
     return (
         <Layout>
+            <Head title= 'Welcome to Library of the Royal university of Law and Economics' />
             <MySlide images={slide}/>
             <MySearch />
             <MyHeroSection />

@@ -9,6 +9,7 @@ use App\Models\Heading;
 use App\Models\Item;
 use App\Models\Page;
 use App\Models\Post;
+use Illuminate\Http\Request;
 
 class RuleLibraryController extends Controller
 {
@@ -20,6 +21,7 @@ class RuleLibraryController extends Controller
         $heroSection = Page::where('code', 'HOME_PAGE')->with('images')->first();
         $newPost = Post::with('images')
             ->where('status', 'active')
+            ->limit(6)
             ->get();
         $videos = Item::where('category_code', 'VIDEOS')->where('status', 'active')->with('images')->get();
         // return $videos;
@@ -94,6 +96,28 @@ class RuleLibraryController extends Controller
         ]);
     }
 
+    public function news(Request $request)
+    {
+        $search = $request->input('search', '');
+
+        $query = Post::query()->with('images');
+
+        if ($search) {
+            $query->where(function ($sub_query) use ($search) {
+                $sub_query->where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('title_kh', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
+
+        return Inertia::render('rule-library/news/Index', [
+            'tableData' => $tableData,
+            'filters' => [
+                'search' => $search
+            ]
+        ]);
+    }
 
     public function detail($id)
     {

@@ -24,12 +24,13 @@ import { CardBody, CardContainer, CardItem } from './ui/3d-card';
 
 const MyNews = () => {
     const { newPost } = usePage().props;
-    console.log(newPost);
+    // console.log(newPost);
     return (
         <div className="container mx-auto my-16 max-w-screen-2xl px-3 lg:px-20">
-            <h2 className="my-5 animate-bounce text-center text-xl font-semibold tracking-wide text-foreground after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:bg-red-500 after:transition-all after:duration-300 after:content-[''] hover:after:w-20 after:rounded-full md:text-2xl lg:text-3xl">
+            <h2 className="text-foreground my-5 animate-bounce text-center text-xl font-semibold tracking-wide after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:rounded-full after:bg-red-500 after:transition-all after:duration-300 after:content-[''] hover:after:w-20 md:text-2xl lg:text-3xl">
                 News
             </h2>
+
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
                 {newPost?.map((item) => (
                     <Link href={`/news/${item.id}`} key={item.id} className="flex justify-center">
@@ -55,12 +56,12 @@ const MyNews = () => {
                                         alt={`image`}
                                     />
                                     <div className="flex items-center justify-end">
-                                        <CardItem 
+                                        <CardItem
                                             translateZ={20}
                                             as="button"
                                             className="rounded-xl px-4 py-2 text-[14px] font-bold text-blue-500 hover:underline hover:underline-offset-4"
                                         >
-                                            <a href={`/news/${item.id}`}>Read More</a> 
+                                            <a href={`/news/${item.id}`}>Read More</a>
                                         </CardItem>
                                     </div>
                                 </CardItem>
@@ -69,6 +70,13 @@ const MyNews = () => {
                     </Link>
                 ))}
             </div>
+            <Link
+                href="/news"
+                className="group relative mx-auto mt-10 mb-5 flex w-max items-center gap-2 rounded-full border border-red-500 bg-red-500 px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-transparent hover:text-red-500 dark:border-red-400 dark:bg-red-500 dark:hover:bg-transparent dark:hover:text-red-400"
+            >
+                See More
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </Link>
         </div>
     );
 };

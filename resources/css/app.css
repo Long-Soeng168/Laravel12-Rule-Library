@@ -309,9 +309,11 @@ html {
     --color-card-foreground: var(--card-foreground);
 
     --color-popover: var(--popover);
+    
     --color-popover-foreground: var(--popover-foreground);
 
     --color-primary: var(--primary);
+    --color-primary-two: var(--primary-two);
     --color-true-primary: var(--true-primary);
     --color-true-primary-six: var(--true-primary-six);
     --color-true-primary-two: var(--true-primary-two);
@@ -517,6 +519,7 @@ html {
     --true-primary-four: oklch(0.74 0.17 58.85);
     --true-primary-five: oklch(0.73 0.13 211.69);
     --primary: oklch(0.54 0.09 194.77);
+    --primary-two: oklab(0.81 0 0.19);
     --true-primary: oklch(0.54 0.09 194.77);
     --primary-foreground: oklch(0.985 0 0);
     --success: oklch(0.627 0.194 149.214);
@@ -558,6 +561,7 @@ html {
     --popover: oklch(0.145 0 0);
     --popover-foreground: oklch(0.985 0 0);
     --primary: oklch(0.985 0 0);
+    --primary-two: oklch(0.985 0 0);
     /* --true-primary: oklch(0.54 0.15 249.67); */
      --true-primary: oklch(0.54 0.09 194.77);
     --true-primary-two: oklch(0.39 0.15 266.19);
