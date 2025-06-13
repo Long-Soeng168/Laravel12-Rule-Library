@@ -3,13 +3,14 @@ import { SlashIcon } from 'lucide-react';
 import Layout from '../Layout';
 import MyItemTableData from '../components/my-item-table-data';
 import { Head, usePage } from '@inertiajs/react';
+import MySearch from '../components/my-search';
 
 const Resources = () => {
      const { banner, heading } = usePage().props;
     return (
         <Layout>
             <Head title="Resources" />
-            <div className="relative flex aspect-[21/6] w-full flex-col items-center justify-center overflow-hidden text-white">
+            <div className="relative flex aspect-[21/4] w-full flex-col items-center justify-center overflow-hidden text-white">
                 {/* Background Image with Dark Overlay */}
                 <img
                     src={`/assets/images/banner_positions/${banner?.banner}`}
@@ -41,6 +42,7 @@ const Resources = () => {
                     </div>
                 </div>
             </div>
+            <MySearch/>
             <div className="mx-auto my-10 max-w-4xl text-center">
                 <h2 className="text-4xl font-bold text-gray-900 dark:text-white">{heading?.title}</h2>
                 <p className="mt-2 text-gray-500 dark:text-gray-300">{heading?.short_description}</p>

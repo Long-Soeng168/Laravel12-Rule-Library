@@ -52,7 +52,6 @@ const Contact = () => {
                         src={application_info?.google_map}
                         width="100%"
                         height="480"
-                        loading="lazy"
                         title="Map to RULE Library"
                         aria-label="Map to RULE Library"
                     ></iframe>
@@ -60,7 +59,7 @@ const Contact = () => {
 
                 {/* Info Section */}
                 <div className="container mx-auto px-6 md:px-12">
-                    <div className="bg-background dark:bg-gray-800 -mt-[100px] block rounded-lg border-gray-300 px-6 py-12 shadow-xl backdrop-blur-[30px] md:px-12 md:py-16">
+                    <div className="bg-background/50  -mt-[80px] block rounded-lg border-gray-300 px-6 py-12 shadow-xl backdrop-blur-md md:px-12 md:py-16">
                         <div className="grid justify-center">
                             <div className="grid w-full gap-12 md:grid-cols-2 xl:grid-cols-2">
                                 {/* Contact Details Section */}
@@ -73,7 +72,7 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="ml-6 grow">
-                                            <p className="mb-2 font-semibold text-foreground">Phone Number</p>
+                                            <p className="mb-2 font-semibold text-foreground group-hover:text-neutral-800">Phone Number</p>
                                             <p className="text-foreground text-sm transition group-hover:text-neutral-800">
                                                 {application_info?.phone}
                                             </p>
@@ -88,7 +87,7 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="ml-6 grow">
-                                            <p className="mb-2 font-semibold text-foreground">Address</p>
+                                            <p className="mb-2 font-semibold text-foreground group-hover:text-neutral-800">Address</p>
                                             <p className="text-foreground text-sm transition group-hover:text-neutral-800">
                                                 {application_info?.address}
                                             </p>
@@ -103,7 +102,7 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="ml-6 grow">
-                                            <p className="mb-2 font-semibold text-foreground">Email</p>
+                                            <p className="mb-2 font-semibold text-foreground group-hover:text-neutral-800">Email</p>
                                             <p className="text-foreground text-sm transition group-hover:text-neutral-800">
                                                 {application_info?.email}
                                             </p>

@@ -4,6 +4,7 @@ import Layout from './Layout';
 import MyHeroAbout from './components/my-hero-about';
 import MyOurValues from './components/my-our-values';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from './components/ui/breadcrumb';
+import MySearch from './components/my-search';
 
 const About = () => {
     const { banner } = usePage().props;
@@ -11,12 +12,10 @@ const About = () => {
     return (
         <Layout>
             <Head title="About" />
-            <div className="relative flex w-full aspect-[21/6] flex-col items-center justify-center overflow-hidden text-white">
+            <div className="relative flex w-full aspect-[21/4] flex-col items-center justify-center overflow-hidden text-white">
                 {/* Background Image with Dark Overlay */}
-
                 <img src={`/assets/images/banner_positions/${banner?.banner}`} className="absolute inset-0 z-0 w-full h-full object-cover " />
                 <div className="absolute inset-0 z-10 bg-black/50" />
-
                 {/* Title and Breadcrumb */}
                 <div className="relative z-20 px-4 text-center">
                     <h1 className="font-noto-san-extra-light text-xl md:text-6xl">About</h1>
@@ -41,6 +40,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            <MySearch/>
             <MyHeroAbout />
             <MyOurValues />
         </Layout>
