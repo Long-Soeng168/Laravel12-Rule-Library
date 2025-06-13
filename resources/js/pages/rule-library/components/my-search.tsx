@@ -26,8 +26,8 @@ const MySearch = () => {
     }, []);
     return (
         <>
-            <div className="mx-auto max-w-screen-2xl bg-[#393838] px-3 pt-4 sm:px-10 lg:px-20">
-                <p className="text-base font-semibold text-white sm:text-xl lg:text-2xl">One Search</p>
+            <div className=" bg-[#393838] ">
+                <div className="mx-auto max-w-screen-2xl px-3 pt-4 sm:px-10 lg:px-20 text-base font-semibold text-white sm:text-xl lg:text-2xl">One Search</div>
             </div>
             <div ref={sentinelRef} />
             <div
