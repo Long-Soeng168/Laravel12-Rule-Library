@@ -37,8 +37,8 @@ const MySearch = () => {
                 className={`sticky top-0 left-0 z-50 w-full backdrop-blur-md transition-all duration-300 ease-in-out ${isSticky ? 'bg-background/50' : 'bg-[#393838]'}`}
             >
                
-                <div className="mx-auto max-w-screen-2xl flex gap-10 items-center justify-center px-3 py-3 sm:px-10 lg:px-20">
-                     {isSticky && <a href='/'><img  src={`/assets/images/application_info/${application_info?.image}`} className='w-16'/></a>}
+                <div className="mx-auto max-w-screen-2xl flex lg:gap-10 items-center justify-center px-3 py-3 sm:px-10 lg:px-20">
+                     {isSticky && <a href='/'><img  src={`/assets/images/application_info/${application_info?.image}`} className='w-12 lg:w-16'/></a>}
                     <form
                         action="https://www.elibrary-rule.com/one_search"
                         method="GET"
