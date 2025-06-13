@@ -1,5 +1,6 @@
 import { usePage } from '@inertiajs/react';
 import { MyFooterSocialTooltip } from './my-footer-social-tooltip';
+import MyScrollTop from './my-scrool-top';
 
 const MyFooter = () => {
     // const websiteInfos = {
@@ -122,6 +123,7 @@ const MyFooter = () => {
                     </p>
                 </div>
             </div>
+            <MyScrollTop/>
         </footer>
     );
 };

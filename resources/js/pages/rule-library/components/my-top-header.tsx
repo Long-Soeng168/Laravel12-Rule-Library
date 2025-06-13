@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useInitials } from '@/hooks/use-initials';
 import { Link, usePage } from '@inertiajs/react';
 import { Phone } from 'lucide-react';
-import { MyLanguageSwitcher } from './my-language-switcher';
+import { MyLanguage } from './my-language';
 
 const MyTopHeader = () => {
     const getInitials = useInitials();
@@ -13,15 +13,18 @@ const MyTopHeader = () => {
     const { application_info } = usePage().props;
     return (
         <div className="bg-background mt-1 px-4 py-1 sm:px-6 md:px-10 xl:px-20">
-            <div className="text-foreground mx-auto flex max-w-screen-2xl flex-wrap items-center justify-end gap-4 text-sm">
+            <div className="text-foreground mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between lg:justify-end gap-4 text-sm">
                 {/* Left Section (Language Switcher) */}
-                <div className="flex items-center gap-1">
+               <div className='flex gap-3'>
+                 {/* <div className="flex items-center gap-1">
                     <Phone size={16} />
                     <span className="truncate">{application_info?.phone}</span>
-                </div>
+                </div> */}
                 <div className="flex-shrink-0">
-                    <MyLanguageSwitcher />
+                    <MyLanguage/>
                 </div>
+               
+               </div>
 
                 {/* Right Section (Phone + Login) */}
                 <div className="flex min-w-0 flex-wrap items-center justify-end gap-3">

@@ -32,16 +32,16 @@ const MyOurValues = () => {
         <div className="bg-background">
             {ourValues?.map((item) => (
                 <div key={item.id} className="mx-auto flex max-w-screen-2xl flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-20">
-                    <div className="mx-auto max-w-xl text-center">
-                        <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">{item?.title}</h2>
-                    </div>
+                    <h2 className="text-foreground my-5 text-center text-3xl font-semibold tracking-wide after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:rounded-full after:bg-yellow-400 after:transition-all after:duration-300 after:content-[''] hover:after:w-20 md:text-2xl lg:text-3xl">
+                        {item?.title}
+                    </h2>
                     {/* <div className="relative mt-6 h-[2px] w-full bg-gray-200">
                         <div className="absolute top-0 left-1/2 h-[2px] w-20 -translate-x-1/2 transform bg-yellow-400"></div>
                     </div> */}
-                    <div className="mx-auto mt-20 grid w-full max-w-screen-2xl grid-cols-2 gap-12 sm:grid-cols-3 md:grid-cols-5">
+                    <div className="mx-auto mt-10 grid w-full max-w-screen-2xl grid-cols-2 gap-12 sm:grid-cols-3 md:grid-cols-5">
                         {item?.children?.map((values) => (
                             <a href={values.type ? values.link : values.content} key={values.id} className="text-center">
-                                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-yellow-400/10 dark:bg-yellow/50 text-white">
+                                <div className="dark:bg-yellow/50 mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-yellow-400/10 text-white">
                                     <img
                                         src={`/assets/images/pages/${values.images[0].image}`}
                                         alt="image"

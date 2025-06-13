@@ -5,7 +5,7 @@ const MyHeroAbout = () => {
     const { aboutPage } = usePage().props;
     // console.log(aboutPage);
     return (
-        <section className="bg-background px-6 py-16 md:px-20">
+        <section className="bg-background px-6 pt-16 md:px-20">
             {aboutPage?.map((item) => (
                 <div key={item.id} className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-2">
                     {/* Left: Images */}

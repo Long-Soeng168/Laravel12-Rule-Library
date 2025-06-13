@@ -12,7 +12,7 @@ const Index = () => {
             <Head title="News" />
             <div className="container mx-auto mt-5 mb-16 max-w-screen-2xl px-3 lg:px-20">
                 <div className="flex flex-col items-center justify-between md:flex-row">
-                    <h2 className="text-foreground my-5 animate-bounce text-center text-xl font-semibold tracking-wide after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:rounded-full after:bg-red-500 after:transition-all after:duration-300 after:content-[''] hover:after:w-20 md:text-2xl lg:text-3xl">
+                    <h2 className="text-foreground my-5 animate-bounce text-center text-2xl font-semibold tracking-wide after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:rounded-full after:bg-red-500 after:transition-all after:duration-300 after:content-[''] hover:after:w-20 md:text-2xl lg:text-3xl">
                         News
                     </h2>
                     <div className="mb-2 md:mb-0">

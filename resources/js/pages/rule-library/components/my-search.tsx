@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from './ui/button';
+import { usePage } from '@inertiajs/react';
 
 const MySearch = () => {
+    const { application_info } = usePage().props;
     const headerRef = useRef(null);
     const sentinelRef = useRef(null);
     const [isSticky, setIsSticky] = useState(false);
@@ -34,11 +36,13 @@ const MySearch = () => {
                 ref={headerRef}
                 className={`sticky top-0 left-0 z-50 w-full backdrop-blur-md transition-all duration-300 ease-in-out ${isSticky ? 'bg-background/50' : 'bg-[#393838]'}`}
             >
-                <div className="mx-auto max-w-screen-2xl px-3 py-3 sm:px-10 lg:px-20">
+               
+                <div className="mx-auto max-w-screen-2xl flex gap-10 items-center justify-center px-3 py-3 sm:px-10 lg:px-20">
+                     {isSticky && <a href='/'><img  src={`/assets/images/application_info/${application_info?.image}`} className='w-16'/></a>}
                     <form
                         action="https://www.elibrary-rule.com/one_search"
                         method="GET"
-                        className="flex flex-row items-center justify-center gap-2 rounded-full border bg-white py-0 pr-0 pl-3 shadow-xl focus-within:ring-1 focus-within:ring-yellow-400"
+                        className="flex-1 flex flex-row items-center justify-center gap-2 rounded-full border bg-white py-0 pr-0 pl-3 shadow-xl focus-within:ring-1 focus-within:ring-yellow-400"
                     >
                         <label htmlFor="search-bar" className="sr-only">
                             Search

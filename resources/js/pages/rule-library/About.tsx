@@ -12,7 +12,7 @@ const About = () => {
     return (
         <Layout>
             <Head title="About" />
-            <div className="relative flex w-full aspect-[21/4] flex-col items-center justify-center overflow-hidden text-white">
+            <div className="relative flex w-full aspect-[21/5] flex-col items-center justify-center overflow-hidden text-white">
                 {/* Background Image with Dark Overlay */}
                 <img src={`/assets/images/banner_positions/${banner?.banner}`} className="absolute inset-0 z-0 w-full h-full object-cover " />
                 <div className="absolute inset-0 z-10 bg-black/50" />
