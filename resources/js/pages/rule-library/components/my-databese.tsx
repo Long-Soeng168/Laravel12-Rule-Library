@@ -14,6 +14,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const MyDatabase = () => {
     const { dataBase } = usePage().props;
+   
+    if (!dataBase || dataBase?.length === 0) {
+    return (
+        <div className="container mx-auto my-10 max-w-screen-2xl px-3 lg:px-20 text-center text-gray-500 dark:text-gray-300">
+        </div>  
+    );
+}
     return (
         <div className="mx-auto mt-10 max-w-screen-2xl px-3 lg:px-20">
             <div className="flex">

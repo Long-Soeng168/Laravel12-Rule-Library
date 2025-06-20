@@ -13,6 +13,7 @@ import ToggleModeSwitch from '@/components/toggle-mode-switch';
 const Index = () => {
   const { slide } = usePage().props;
 //   console.log(slide);
+
     return (
         <Layout>
             <Head title= 'Welcome to Library of the Royal university of Law and Economics' />

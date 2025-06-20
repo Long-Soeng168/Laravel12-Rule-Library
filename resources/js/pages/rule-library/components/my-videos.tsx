@@ -38,7 +38,7 @@ import { usePage } from '@inertiajs/react';
 
 export default function MyVideoGallery() {
     const { videos } = usePage().props;
-    console.log(videos);
+    // console.log(videos);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -66,7 +66,14 @@ export default function MyVideoGallery() {
             setCurrentIndex((prevIndex) => prevIndex - 1);
         }
     };
+    
 
+    if (!videos || videos?.length === 0) {
+    return (
+        <div className="container mx-auto my-10 max-w-screen-2xl px-3 lg:px-20 text-center text-gray-500 dark:text-gray-300">
+        </div>
+    );
+}
     return (
         <>
             <div className="container mx-auto my-10 max-w-screen-2xl px-3 lg:px-20">

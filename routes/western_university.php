@@ -135,7 +135,7 @@ Route::get('/activities_and_events', function () {
     $dataPage = Page::where('code', 'SCHOOL_ACTIVITIES_AND_EVENTS')->first();
     $activitiesAndEventsTopData = Page::where('position_code', 'SCHOOL_ACTIVITIES_AND_EVENT_TOP')->with('images')->get();
     $activitiesAndEventsBottomData = Page::where('position_code', 'SCHOOL_ACTIVITIES_AND_EVENT_BOTTOM')->with('images')->get();
-        // return $activitiesAndEventsBottomData;
+    // return $activitiesAndEventsBottomData;
     return Inertia::render('westernuniversity/school_life/ActivitiesAndEvents', [
         'banner' => $banner,
         'dataPage' => $dataPage,
@@ -150,7 +150,7 @@ Route::get('/extracurricular_activities', function () {
     $dataPage = Page::where('code', 'EXTRACURRICULAR_ACTIVITIES')->first();
     $TopData = Page::where('position_code', 'EXTRACURRICULAR_ACTIVITIES_TOP')->with('images')->get();
     $BottomData = Page::where('position_code', 'EXTRACURRICULAR_ACTIVITIES_BOTTOM')->with('images')->get();
-    return Inertia::render('westernuniversity/school_life/ExtracurricularActivities',[
+    return Inertia::render('westernuniversity/school_life/ExtracurricularActivities', [
         'banner' => $banner,
         'dataPage' => $dataPage,
         'topData' => $TopData,
@@ -163,8 +163,8 @@ Route::get('/outreach_programs', function () {
     $outreachProgramData = Page::where('code', 'OUTREACH_PROGRAMS')
         ->with(['children.images']) // Eager load images for children
         ->first();
-        // return $outreachProgramData;
-    return Inertia::render('westernuniversity/school_life/OutreachPrograms',[
+    // return $outreachProgramData;
+    return Inertia::render('westernuniversity/school_life/OutreachPrograms', [
         'banner' => $banner,
         'outreachProgramData' => $outreachProgramData,
     ]);

@@ -4,6 +4,9 @@ import MyHeadingStyle1 from './my-heading-style-1';
 const MyHeroAbout = () => {
     const { aboutPage } = usePage().props;
     // console.log(aboutPage);
+    if (!aboutPage || aboutPage?.length === 0) {
+        return <div className="container mx-auto my-10 max-w-screen-2xl px-3 text-center text-gray-500 lg:px-20 dark:text-gray-300"></div>;
+    }
     return (
         <section className="bg-background px-6 pt-16 md:px-20">
             {aboutPage?.map((item) => (

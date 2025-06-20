@@ -5,6 +5,9 @@ import MyHeadingStyle1 from './my-heading-style-1';
 const MyHeroSection = () => {
     const { heroSection } = usePage().props;
     // console.log(heroSection);
+     if (!heroSection || heroSection?.length === 0) {
+        return <div className="container mx-auto my-10 max-w-screen-2xl px-3 text-center text-gray-500 lg:px-20 dark:text-gray-300"></div>;
+    }
     return (
         <section className="bg-background mx-auto max-w-screen-2xl px-4 pt-10 sm:px-8 md:px-16 lg:px-20">
             <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">

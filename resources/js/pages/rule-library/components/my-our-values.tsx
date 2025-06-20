@@ -28,6 +28,9 @@ import { usePage } from '@inertiajs/react';
 // ];
 const MyOurValues = () => {
     const { ourValues } = usePage().props;
+      if (!ourValues || ourValues?.length === 0) {
+        return <div className="container mx-auto my-10 max-w-screen-2xl px-3 text-center text-gray-500 lg:px-20 dark:text-gray-300"></div>;
+    }
     return (
         <div className="bg-background">
             {ourValues?.map((item) => (

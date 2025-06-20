@@ -1,7 +1,14 @@
+import MyNoData from '@/components/my-no-data';
 import { usePage } from '@inertiajs/react';
 
 const MyItemTableData = () => {
   const { tableData } = usePage().props;
+
+   if (!tableData?.data || tableData?.data?.length === 0) {
+  return (
+    <MyNoData/>
+  );
+}
 
   return (
     <section className="mx-auto max-w-screen-2xl px-4 pb-14 lg:px-20">

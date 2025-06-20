@@ -16,9 +16,9 @@ class RuleLibraryController extends Controller
     public function index()
     {
         $slide = Banner::where('position_code', 'SLIDE_SHOW')->orderBy('order_index')->where('status', 'active')->get();
-        $newBooks = Item::where('category_code', 'NEW_BOOKS')->with('images')->limit(12)->get();
-        $researchPaper = Item::where('category_code', 'RESEARCH_PAPERS')->with('images')->get();
-        $heroSection = Page::where('code', 'HOME_PAGE')->with('images')->first();
+        $newBooks = Item::where('category_code', 'NEW_BOOKS')->where('status', 'active')->with('images')->limit(12)->get();
+        $researchPaper = Item::where('category_code', 'RESEARCH_PAPERS')->where('status', 'active')->with('images')->limit(12)->get();
+        $heroSection = Page::where('code', 'HOME_PAGE')->where('status', 'active')->with('images')->first();
         $newPost = Post::with('images')
             ->where('status', 'active')
             ->limit(6)
@@ -37,8 +37,15 @@ class RuleLibraryController extends Controller
     public function about()
     {
         $banner = BannerPosition::where('code', 'ABOUT_PAGE_BANNER')->first();
-        $aboutPage = Page::where('code', 'ABOUT_PAGE')->with('images')->get();
-        $ourValues = Page::where('code', 'OUR_VALUES')->with(['children.images'])->get();
+        $aboutPage = Page::where('code', 'ABOUT_PAGE')->where('status', 'active')->with('images')->get();
+        // $ourValues = Page::where('code', 'OUR_VALUES')->where('status', 'active')->with(['children.images'])->get();
+
+        $ourValues = Page::where('code', 'OUR_VALUES')
+        ->with([
+            'images',
+            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
+        ])
+        ->get();
         //  return $ourValues;
         return Inertia::render('rule-library/About', [
             'banner' => $banner,
@@ -52,6 +59,7 @@ class RuleLibraryController extends Controller
         $query = Item::query();
         $query->where('category_code', 'COLLECTIONS');
         $query->orderBy('id', 'desc');
+        $query->where('status', 'active');
         $query->with('images');
         $tableData = $query->paginate(40);
 
@@ -68,6 +76,7 @@ class RuleLibraryController extends Controller
         $query = Item::query();
         $query->where('category_code', 'RESOURCES');
         $query->orderBy('id', 'desc');
+        $query->where('status', 'active');
         $query->with('images');
         $tableData = $query->paginate(40);
 
@@ -84,6 +93,7 @@ class RuleLibraryController extends Controller
         $query = Item::query();
         $query->where('category_code', 'DATABASES');
         $query->orderBy('id', 'desc');
+        $query->where('status', 'active');
         $query->with('images');
         $tableData = $query->paginate(40);
 
