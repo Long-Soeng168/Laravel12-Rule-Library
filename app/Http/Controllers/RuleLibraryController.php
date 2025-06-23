@@ -34,6 +34,16 @@ class RuleLibraryController extends Controller
             'videos' => $videos,
         ]);
     }
+
+ public function introduction()
+    {
+        $heroSection = Page::where('code', 'HOME_PAGE')->where('status', 'active')->with('images')->first();
+        // return $videos;
+        return Inertia::render('rule-library/Introduction', [
+            'heroSection' => $heroSection,
+        ]);
+    }
+    
     public function about()
     {
         $banner = BannerPosition::where('code', 'ABOUT_PAGE_BANNER')->first();
@@ -41,11 +51,11 @@ class RuleLibraryController extends Controller
         // $ourValues = Page::where('code', 'OUR_VALUES')->where('status', 'active')->with(['children.images'])->get();
 
         $ourValues = Page::where('code', 'OUR_VALUES')
-        ->with([
-            'images',
-            'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
-        ])
-        ->get();
+            ->with([
+                'images',
+                'children' => fn($sub_query) => $sub_query->orderBy('order_index')->where('status', 'active')->with('images'),
+            ])
+            ->get();
         //  return $ourValues;
         return Inertia::render('rule-library/About', [
             'banner' => $banner,
@@ -129,7 +139,7 @@ class RuleLibraryController extends Controller
         ]);
     }
 
-     public function new_books(Request $request)
+    public function new_books(Request $request)
     {
         $search = $request->input('search', '');
 
@@ -155,7 +165,13 @@ class RuleLibraryController extends Controller
     public function detail($id)
     {
         $showData = Item::findOrFail($id);
-        $relatedPosts = Item::with('category', 'images')->where('id', '!=', $id)->where('category_code', $showData->category_code)->orderBy('id', 'desc')->limit(6)->get();
+        $relatedPosts = Item::with('category', 'images')
+            ->where('id', '!=', $id)
+            ->where('category_code', $showData->category_code) // match category_code
+            ->where('status', 'active')
+            ->orderBy('id', 'desc')
+            ->limit(6)
+            ->get();
         return Inertia::render('rule-library/Detail', [
             'showData' => $showData->load('images', 'category'),
             'relatedPosts' => $relatedPosts,

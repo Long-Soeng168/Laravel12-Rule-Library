@@ -4,7 +4,7 @@ import MyHeadingStyle1 from './my-heading-style-1';
 
 const MyHeroSection = () => {
     const { heroSection } = usePage().props;
-    // console.log(heroSection);
+    console.log(heroSection);
      if (!heroSection || heroSection?.length === 0) {
         return <div className="container mx-auto my-10 max-w-screen-2xl px-3 text-center text-gray-500 lg:px-20 dark:text-gray-300"></div>;
     }
@@ -26,7 +26,6 @@ const MyHeroSection = () => {
                         className="text-foreground prose prose-strong:dark:text-white mb-6 leading-relaxed whitespace-pre-line"
                         dangerouslySetInnerHTML={{ __html: heroSection?.short_description || '' }}
                     />
-
                     {/* <a
                         href={heroSection?.type ? heroSection?.link : heroSection?.content}
                         className="inline-flex items-center gap-2 rounded-full border border-gray-600 bg-gray-800 px-6 py-3 text-sm font-medium text-white transition duration-200 hover:cursor-pointer hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:outline-none"
@@ -39,7 +38,7 @@ const MyHeroSection = () => {
 
                     <div className="flex justify-start">
                         <Link
-                            href="/about"
+                            href={`/introduction`}
                             prefetch
                             className="group relative mt-2 w-42 cursor-pointer overflow-hidden rounded-full border bg-[#263381] p-2 text-center font-semibold text-white"
                         >
