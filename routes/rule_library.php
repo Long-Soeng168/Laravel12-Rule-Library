@@ -14,5 +14,6 @@ Route::get('/collections', [RuleLibraryController::class, 'collections']);
 Route::get('/detail/{id}', [RuleLibraryController::class, 'detail']);
 Route::get('/introduction', [RuleLibraryController::class, 'introduction']);
 Route::get('/news/{id}', [RuleLibraryController::class, 'news_show']);
+Route::get('/videos', [RuleLibraryController::class, 'videos']);
 Route::get('/news', [RuleLibraryController::class, 'news']);
 Route::get('/new_books', [RuleLibraryController::class, 'new_books']);

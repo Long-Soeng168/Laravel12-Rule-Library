@@ -116,7 +116,29 @@ class RuleLibraryController extends Controller
         ]);
     }
 
-    public function news(Request $request)
+    public function videos(Request $request)
+    {
+        // $videos = Item::where('category_code', 'VIDEOS')->where('status', 'active')->with('images')->get();
+        $search = $request->input('search', '');
+        $query = Item::query()->where('category_code', 'VIDEOS')->with('images');
+
+        if ($search) {
+            $query->where(function ($sub_query) use ($search) {
+                $sub_query->where('name', 'LIKE', "%{$search}%")
+                    ->orWhere('name_kh', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
+        // return $tableData;
+        return Inertia::render('rule-library/videos/Index', [
+            'tableData' => $tableData,
+            'filters' => [
+                'search' => $search
+            ]
+        ]);
+    }
+     public function news(Request $request)
     {
         $search = $request->input('search', '');
 
