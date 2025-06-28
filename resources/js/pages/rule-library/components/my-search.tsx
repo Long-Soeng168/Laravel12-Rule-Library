@@ -30,7 +30,7 @@ const MySearch = () => {
 
     return (
         <>
-            <div className="bg-[#393838]">
+            <div className="bg-[#393838] dark:bg-black">
                 <div className="mx-auto max-w-screen-2xl px-3 pt-4 text-base font-semibold text-white sm:px-10 sm:text-xl lg:px-20 lg:text-2xl">
                     One Search
                 </div>

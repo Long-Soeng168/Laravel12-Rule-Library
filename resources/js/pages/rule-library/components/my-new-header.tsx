@@ -7,7 +7,7 @@ const MyNewHeader = () => {
     return (
         <div>
             {/* nav and slide */}
-            <div className="bg-[#393838]">
+            <div className="bg-[#393838] dark:bg-black">
                 <div className="mx-auto flex max-w-screen-2xl items-center gap-2 px-3 py-2 sm:px-10 xl:px-20">
                     <a href="/" className="flex flex-1 items-center gap-2 text-center text-base text-white md:text-xl lg:text-xl">
                         <img
