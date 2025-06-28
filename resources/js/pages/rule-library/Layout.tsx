@@ -1,23 +1,22 @@
-import React from 'react'
 import { ReactNode } from 'react';
-import MyTopHeader from './components/my-top-header'
-import MyNewHeader from './components/my-new-header'
-import MyFooter from './components/my-footer'
-import { Head } from '@inertiajs/react';
+import MyFooter from './components/my-footer';
+import MyNewHeader from './components/my-new-header';
+import MyTopHeader from './components/my-top-header';
 interface LayoutProps {
     children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+    return (
+        <>
+            <div className="block xl:hidden p-2 px-8">
+                <MyTopHeader />
+            </div>
+            <MyNewHeader />
+            <main className="font-poppins-regular mx-auto min-h-screen">{children}</main>
+            <MyFooter />
+        </>
+    );
+};
 
-  return (
-    <>
-        <MyTopHeader/>
-        <MyNewHeader/>
-        <main className="font-poppins-regular mx-auto min-h-screen">{children}</main>
-        <MyFooter />
-    </>
-  )
-}
-
-export default Layout
+export default Layout;

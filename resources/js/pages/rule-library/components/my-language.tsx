@@ -10,7 +10,7 @@ const languages = [
   {
     value: 'kh',
     label: 'Khmer',
-    flag: '/assets/demo-images/kh.png',
+    flag: '/assets/icons/khmer.png',
   },
 ];
 
@@ -25,7 +25,7 @@ export function MyLanguage() {
           variant="outline"
           size={'icon'}
           onClick={() => setValue(lang.value)}
-          className={`p-1 border-2 transition-all ${
+          className={`p-[2px] border-2 bg-transparent transition-all ${
             value === lang.value
               ? 'border-primary-two'
               : 'border-transparent'
@@ -34,7 +34,7 @@ export function MyLanguage() {
           <img
             src={lang.flag}
             alt={lang.label}
-            className="h-full w-full rounded-full object-cover"
+            className="h-full w-full rounded-full object-cover border border-white"
           />
         </Button>
       ))}
