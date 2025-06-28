@@ -41,7 +41,7 @@ const MySearch = () => {
             <div
                 ref={headerRef}
                 className={`sticky top-0 left-0 z-50 w-full backdrop-blur-md transition-all duration-300 ease-in-out ${
-                    isSticky ? 'bg-background/50' : 'bg-[#393838]'
+                    isSticky ? 'bg-background/50' : 'bg-[#393838] dark:bg-black'
                 }`}
             >
                 <div className="mx-auto flex max-w-screen-2xl items-center justify-center px-3 py-4 sm:px-10 lg:px-20">
