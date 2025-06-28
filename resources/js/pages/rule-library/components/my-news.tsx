@@ -28,7 +28,7 @@ const MyNews = () => {
     return (
         <div className="container mx-auto my-16 max-w-screen-2xl px-3 lg:px-20">
             <h2 className="text-foreground my-5 animate-bounce text-center text-xl font-semibold tracking-wide after:mx-auto after:mt-2 after:block after:h-1 after:w-12 after:rounded-full after:bg-red-500 after:transition-all after:duration-300 after:content-[''] hover:after:w-20 md:text-2xl lg:text-3xl">
-                News
+                Posts
             </h2>
 
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
