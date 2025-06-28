@@ -20,7 +20,6 @@ class ImageHelper
             $image_file_name = $file->getClientOriginalName();
         }
 
-
         // Define paths
         $file_path = public_path("$folder/");
         $file_thumb_path = public_path("$folder/thumb/");
@@ -36,7 +35,16 @@ class ImageHelper
         // Store Original Image
         $file->storeAs($folder, $image_file_name, 'real_public');
 
-        // Resize and store thumbnail
+        // Get file extension
+        $extension = strtolower($file->getClientOriginalExtension());
+
+        // If GIF, skip resizing — just copy original to thumb folder
+        if ($extension === 'gif') {
+            $file->storeAs("$folder/thumb", $image_file_name, 'real_public');
+            return $image_file_name;
+        }
+
+        // Resize and store thumbnail for other image types
         try {
             $image = Image::read($file);
             if ($image->width() > $maxWidth) {
@@ -49,6 +57,7 @@ class ImageHelper
             return null;
         }
     }
+
 
     public static function uploadAndResizeImageWebp($file, $folder = 'assets/images/projects', $maxWidth = 600, $timePrefixFileName = true)
     {
