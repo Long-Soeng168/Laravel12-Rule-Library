@@ -1,5 +1,6 @@
-import { usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import MyHeadingStyle1 from './my-heading-style-1';
+import { ArrowRight, LoaderIcon } from 'lucide-react';
 
 const MyHeroAbout = () => {
     const { aboutPage } = usePage().props;
@@ -29,8 +30,28 @@ const MyHeroAbout = () => {
                     {/* Right: Text */}
                     <div>
                         <MyHeadingStyle1 title={item.title} />
-                        <p className="mb-4 text-foreground prose whitespace-pre-line prose-strong:dark:text-white" dangerouslySetInnerHTML={{ __html: item.short_description || '---' }}>
-                        </p>
+                        <div
+                            className="text-foreground prose prose-strong:dark:text-white mb-4 whitespace-pre-line"
+                            dangerouslySetInnerHTML={{ __html: item.short_description || '---' }}
+                        ></div>
+                        <div className="flex justify-start">
+                            <Link
+                                href={`/introduction`}
+                                prefetch
+                                className="group relative mt-2 w-42 cursor-pointer overflow-hidden rounded-full border bg-[#263381] p-2 text-center font-semibold text-white"
+                            >
+                                <span
+                                    className={`inline-block transition-all duration-300 ${false ? 'opacity-0' : 'translate-x-1 group-hover:translate-x-12 group-hover:opacity-0'}`}
+                                >
+                                    Read More
+                                </span>
+                                <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-[#263381] opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
+                                    Read More
+                                    {false ? <LoaderIcon className="animate-spin" /> : <ArrowRight />}
+                                </div>
+                                <div className="absolute top-[40%] left-[20%] h-2 w-2 scale-[1] rounded-full transition-all duration-300 group-hover:top-[0%] group-hover:left-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-white"></div>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             ))}
