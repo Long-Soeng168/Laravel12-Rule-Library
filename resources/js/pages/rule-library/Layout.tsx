@@ -9,7 +9,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
     return (
         <>
-            <div className="block xl:hidden p-2 px-8">
+            <div className="block xl:hidden p-2 px-2">
                 <MyTopHeader />
             </div>
             <MyNewHeader />
