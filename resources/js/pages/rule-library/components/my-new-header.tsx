@@ -11,7 +11,7 @@ const MyNewHeader = () => {
                 <div className="mx-auto flex max-w-screen-2xl items-center gap-2 px-3 py-2 sm:px-10 xl:px-20">
                     <a href="/" className="flex flex-1 items-center gap-2 text-center text-base text-white md:text-xl lg:text-xl">
                         <img
-                            src={`/assets/images/application_info/${application_info?.image}`}
+                            src={`/assets/images/application_info/thumb/${application_info?.image}`}
                             width={80}
                             height={80}
                             alt="logo"

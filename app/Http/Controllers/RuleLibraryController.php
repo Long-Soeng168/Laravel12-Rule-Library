@@ -16,14 +16,28 @@ class RuleLibraryController extends Controller
     public function index()
     {
         $slide = Banner::where('position_code', 'SLIDE_SHOW')->orderBy('order_index')->where('status', 'active')->get();
-        $newBooks = Item::where('category_code', 'NEW_BOOKS')->where('status', 'active')->with('images')->limit(12)->get();
-        $researchPaper = Item::where('category_code', 'RESEARCH_PAPERS')->where('status', 'active')->with('images')->limit(12)->get();
+        $newBooks = Item::where('category_code', 'NEW_BOOKS')
+            ->where('status', 'active')
+            ->with('images')
+            ->orderBy('id', 'desc')
+            ->limit(12)
+            ->get();
+
+        $researchPaper = Item::where('category_code', 'RESEARCH_PAPERS')->where('status', 'active')->orderBy('id', 'desc')->with('images')->limit(12)->get();
         $heroSection = Page::where('code', 'HOME_PAGE')->where('status', 'active')->with('images')->first();
         $newPost = Post::with('images')
             ->where('status', 'active')
+            ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
-        $videos = Item::where('category_code', 'VIDEOS')->where('status', 'active')->with('images')->get();
+        // $videos = Item::where('category_code', 'VIDEOS')->orderBy('id', 'desc')->where('status', 'active')->with('images')->limit(8)->get();
+        $videos = Item::where('category_code', 'VIDEOS')
+            ->where('status', 'active')
+            ->with('images')
+            ->orderBy('id', 'desc')
+            ->limit(8)
+            ->get();
+        
         // return $videos;
         return Inertia::render('rule-library/Index', [
             'slide' => $slide,
@@ -35,7 +49,29 @@ class RuleLibraryController extends Controller
         ]);
     }
 
- public function introduction()
+    public function videos(Request $request)
+    {
+        // $videos = Item::where('category_code', 'VIDEOS')->where('status', 'active')->with('images')->get();
+        $search = $request->input('search', '');
+        $query = Item::query()->where('category_code', 'VIDEOS')->with('images');
+
+        if ($search) {
+            $query->where(function ($sub_query) use ($search) {
+                $sub_query->where('name', 'LIKE', "%{$search}%")
+                    ->orWhere('name_kh', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $tableData = $query->where('status', 'active')->orderBy('id', 'desc')->paginate(40)->withQueryString();
+        // return $tableData;
+        return Inertia::render('rule-library/videos/Index', [
+            'tableData' => $tableData,
+            'filters' => [
+                'search' => $search
+            ]
+        ]);
+    }
+    public function introduction()
     {
         $heroSection = Page::where('code', 'HOME_PAGE')->where('status', 'active')->with('images')->first();
         // return $videos;
@@ -43,7 +79,7 @@ class RuleLibraryController extends Controller
             'heroSection' => $heroSection,
         ]);
     }
-    
+
     public function about()
     {
         $banner = BannerPosition::where('code', 'ABOUT_PAGE_BANNER')->first();
@@ -116,29 +152,7 @@ class RuleLibraryController extends Controller
         ]);
     }
 
-    public function videos(Request $request)
-    {
-        // $videos = Item::where('category_code', 'VIDEOS')->where('status', 'active')->with('images')->get();
-        $search = $request->input('search', '');
-        $query = Item::query()->where('category_code', 'VIDEOS')->with('images');
-
-        if ($search) {
-            $query->where(function ($sub_query) use ($search) {
-                $sub_query->where('name', 'LIKE', "%{$search}%")
-                    ->orWhere('name_kh', 'LIKE', "%{$search}%");
-            });
-        }
-
-        $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
-        // return $tableData;
-        return Inertia::render('rule-library/videos/Index', [
-            'tableData' => $tableData,
-            'filters' => [
-                'search' => $search
-            ]
-        ]);
-    }
-     public function news(Request $request)
+    public function news(Request $request)
     {
         $search = $request->input('search', '');
 
@@ -151,7 +165,7 @@ class RuleLibraryController extends Controller
             });
         }
 
-        $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
+        $tableData = $query->where('status', 'active')->orderBy('id','desc')->paginate(40)->withQueryString();
 
         return Inertia::render('rule-library/news/Index', [
             'tableData' => $tableData,
@@ -174,9 +188,32 @@ class RuleLibraryController extends Controller
             });
         }
 
-        $tableData = $query->where('status', 'active')->paginate(40)->withQueryString();
+        $tableData = $query->where('status', 'active')->orderBy('id', 'desc')->paginate(40)->withQueryString();
 
         return Inertia::render('rule-library/newBook/Index', [
+            'tableData' => $tableData,
+            'filters' => [
+                'search' => $search
+            ]
+        ]);
+    }
+
+    public function research_papers(Request $request)
+    {
+        $search = $request->input('search', '');
+
+        $query = Item::where('category_code', 'RESEARCH_PAPERS')->with('images');
+
+        if ($search) {
+            $query->where(function ($sub_query) use ($search) {
+                $sub_query->where('name', 'LIKE', "%{$search}%")
+                    ->orWhere('name_kh', 'LIKE', "%{$search}%");
+            });
+        }
+
+        $tableData = $query->where('status', 'active')->orderBy('id', 'desc')->paginate(40)->withQueryString();
+
+        return Inertia::render('rule-library/researchPapers/Index', [
             'tableData' => $tableData,
             'filters' => [
                 'search' => $search

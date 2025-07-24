@@ -1,10 +1,10 @@
 import { UserIconAnimated } from '@/components/animated-icons/User';
-import ToggleModeSwitch from '@/components/toggle-mode-switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { useInitials } from '@/hooks/use-initials';
 import { Link, usePage } from '@inertiajs/react';
 import { MyLanguage } from './my-language';
+import MyToggleSwitches from './my-toggle-switches';
 
 const MyTopHeader = () => {
     const getInitials = useInitials();
@@ -12,7 +12,7 @@ const MyTopHeader = () => {
     const { application_info } = usePage().props;
     return (
         <div className="bg-transparent">
-            <div className="text-foreground mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between gap-4 text-sm lg:justify-end">
+            <div className="text-foreground mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between gap-2 text-sm lg:justify-end">
                 {/* Left Section (Language Switcher) */}
                 <div className="flex gap-3">
                     {/* <div className="flex items-center gap-1">
@@ -45,7 +45,7 @@ const MyTopHeader = () => {
                             </Link>
                         )}
                     </div> */}
-                    <ToggleModeSwitch />
+                  <MyToggleSwitches/>
                 </div>
             </div>
         </div>

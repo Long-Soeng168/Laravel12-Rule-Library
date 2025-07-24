@@ -1,4 +1,4 @@
-import MyNoData from '@/components/my-no-data'; // ✅ Make sure this exists
+import MyNoData from '@/components/my-no-data'; 
 import { MySearchTableData } from '@/components/my-search-table-data';
 import { Head, Link, usePage } from '@inertiajs/react';
 import { MyPaginationNew } from '../components/my-pagination-new';

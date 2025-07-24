@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <>
             <div className="block xl:hidden p-2 px-2">
-                <MyTopHeader />
+            <MyTopHeader />
             </div>
             <MyNewHeader />
             <main className="font-poppins-regular mx-auto min-h-screen">{children}</main>
