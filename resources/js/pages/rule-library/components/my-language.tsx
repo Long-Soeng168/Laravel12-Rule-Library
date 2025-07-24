@@ -27,7 +27,7 @@ export function MyLanguage() {
             variant="outline"
             size="icon"
             onClick={() => setValue(lang.value)}
-            className={`border-2 transition-all ${
+            className={`border-2 rounded-md transition-all ${
               value === lang.value
                 ? 'border-primary-two'
                 : 'border-transparent '
